@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None">
+        
+        
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <title>My Docs</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body class="homepage">
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href=".">My Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem active">
+                                <a href="." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Guides <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="getting_started/" class="dropdown-item">Getting Started</a>
+</li>
+                                    
+<li>
+    <a href="advanced_practices/" class="dropdown-item">Advanced Practices</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="rules_and_conventions/" class="nav-link">Rules and Conventions</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="schema_reference/**/*.md" class="nav-link">Schema Reference</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" class="nav-link disabled">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="getting_started/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#psych-ds" class="nav-link">Psych-DS</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#motivation" class="nav-link">Motivation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#structure" class="nav-link">Structure</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#validation" class="nav-link">Validation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="psych-ds">Psych-DS</h1>
+<p>Psych-DS is a community data standard, providing a systematic way of formatting and documenting scientific datasets. It is heavily inspired by the <a href="https://bids.neuroimaging.io/">Brain Image Data Structure (BIDS)</a> standard for fMRI data.</p>
+<h2 id="motivation">Motivation</h2>
+<p>Studies in the social and behavioral sciences result in datasets that can be arranged in many different ways and in many different file formats. So far, there is no consensus about how to organize and share data obtained in these projects. Even two researchers working in the same lab can opt to arrange their data in a different way. Lack of consensus (or a standard) leads to misunderstandings and time wasted on rearranging data or rewriting scripts expecting certain structure, and hampers creation of software tools for discovering or searching among existing datasets. Psych-DS provides a simple and easy-to-adopt way of organizing psychological and behavioral data, which aims to satisfy <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4792175/">FAIR principles</a> for data sharing. </p>
+<p>Critically, there are two goals for this standard: (1) we wish to promote the adoption of good practices in the management of scientific data by individual working scientists and (2) we wish to create a machine-readable format for these datasets that can support tools for analysis, discovery, and preparation of datasets in psychology. </p>
+<h2 id="structure">Structure</h2>
+<p>The full set of rules and specifications that comprise Psych-DS, referred to as the Psych-DS "schema", can be found in <a href="rules_and_conventions/">Psych-DS Rules and Conventions</a>, and guidance on creating your own Psych-DS dataset can be found in <a href="getting_started/">Getting Started with Psych-DS</a>. </p>
+<p>For a more structured, technical reference, you can check out the <a href="https://github.com/psych-ds/psych-DS/tree/master/schema_model">official schema model</a>, which makes use of the <a href="https://linkml.io/">linkML data modeling language</a>. This is the resource that our validator apps reference when determining if a dataset is compliant with our standard. A corresponding Markdown representation of the schema can be found within within the <strong>Schema Reference</strong> section of the docs (see navigation bar above). </p>
+<p>For the most part, the Psych-DS schema is concerned with (1) metadata practices and (2) folder/file conventions. The following information delves into these concepts in the abstract; more detailed technical information can be found in the resources listed above.</p>
+<h3 id="metadata">Metadata</h3>
+<p>The purpose of metadata is to provide rich contextual information about the provenance and contents of a digital artifact. </p>
+<p>Without good metadata practices, context might be provided on an ad-hoc basis. For instance, a researcher may share a compressed folder full of CSV files to another researcher and say "here are the results of XYZ experiment. Each file contains the responses from a given participant, and unique participant id's are reflected in the file names." This certainly provides some of the necessary context, but now that context lives in the body of an email, and if the researcher who received it wants to share it elsewhere, they'll have to restate the context or forward the email wholesale.</p>
+<p>Alternatively, if the researcher were to include a metadata file in the folder, they could use it to enumerate the relevant context in a way that remains permanently attached to the data it describes. The metadata file could provide information about the researchers who conducted the study, the site where data was collected, the publication that resulted from it, etc. With good metadata, the dataset becomes a <em>self-describing object</em>, and now the reseacher could simply share the compressed folder and to their colleague and say "hey, check this out", and all the necessary context would be contained within the folder.</p>
+<p>In its most richly informative form (and this is what Psych-DS facilitates), metadata not only provides human-readable context, but context that is structured in such a way that it can be accessed and interpreted by machines, including search engines, digital agents, and cataloguing systems. If the researcher observes standardized conventions regarding the name, location, and structure of metadata files, then machines can locate information about the dataset without any human intervention. Additionally, By using standardized <a href="https://rubenverborgh.github.io/WebFundamentals/semantic-web/">"semantic vocabularies"</a> such as <a href="https://schema.org/">Schema.org</a> (which provide unambiguous, conventional defitions of useful concepts such as <a href="https://schema.org/Dataset">"Dataset"</a>, <a href="https://schema.org/name">"name"</a>, <a href="https://schema.org/author">"author"</a>, <a href="https://schema.org/variableMeasured">"variableMeasured"</a>, etc.) researchers can provide information about their dataset that machines can not only locate and access, but <em>interpret</em>.</p>
+<p>To facilitate these ideal metadata practices, Psych-DS requires researchers to include a global metadata file named "dataset_description.json", using <a href="https://json-ld.org/">JSON-LD formatting</a>, a common standard for <a href="https://cambridgesemantics.com/blog/semantic-university/intro-semantic-web/intro-linked-data/">linked data</a>. The schema specifies a number of required/recommended fields to include in this file, all of which are derived, as mentioned, from the Schema.org ontology. This gives researchers the freedom to include metadata files ranging from <a href="https://github.com/psych-ds/example-datasets/blob/main/example_files/dataset_description.json">minimal and satisfactory</a> to <a href="https://github.com/psych-ds/example-datasets/blob/main/complex-metadata-dataset/dataset_description.json">richly informative and structured</a>.</p>
+<h3 id="2-folderfile-conventions">2. Folder/File Conventions</h3>
+<p>In addition to providing context for a dataset in the form of rich, conventionally structured metadata, we also want to ensure that the actual contents of our dataset (the data files) are able to be located/identified without any human guidance. </p>
+<p>Without the help of clear folder/file conventions, researchers structure their datasets in an idiosyncratic, ad-hoc manner. One researcher may store all of their data files in one big pile under the root directory. Others may have the common sense to separate their data files and supplementary materials into separate subdirectories, but may name their subdirectory for data files on a whim, choosing something like "data/", "study_data/", "data_dir/", etc. Additionally, the contents of these data directories may contain a mixture of files in various formats, states of pre-/post-processing, etc., making it unclear which files are meant to be the "canonical" contents of the dataset. </p>
+<p>For a human, it's easy to navigate and interpret these idiosyncratic structures to locate the files with which they're concerned, but strong conventions for structuring subdirectories and naming files provide crucial benefits for both humans and machines.</p>
+<p>Many researchers are familiar with the frustrations involved in running statistical analyses spanning datasets from disparate experiments, labs, or universities. Many precious hours have been wasted either repackaging datasets into a uniform structure or writing bespoke R scripts to manage all the various folder/file conventions. By adopting the Psych-DS schema, individual researchers, labs, and even (ideally) entire research communities can ensure that all of their data is structured in the same way. Doing so minimizes confusion and facilitates the creation of robust, reuseable pipelines for data processing/analysis.</p>
+<p>In certain fields, such as neuroscience, the data derived from experiments take the form of complex, idiosyncratically structured physiological measurements often involving highly specified file formats. In such contexts, strong data conventions are much more of a necessity than a convenience, and as such, standards such as <a href="https://bids.neuroimaging.io/">BIDS</a> have been widely adopted. </p>
+<p>In the behavioral sciences, response data is often structurally simpler but more widely varied, and tabular file formats like CSV and TSV are often sufficient for representating data. In such a context, strong data conventions have taken longer to gain traction, since researchers often see it as easier to compile and re-format datasets ad-hoc than to enforce and adopt community standards. </p>
+<p>By providing a set of minimal, easily adoptable structural standards, Psych-DS provides benefits that far outweigh their cost in terms of adoption. In short, we expect datasets to contain a subdirectory called "data/", which can contain any number of subdirectories within it. "Canonical" data files for the dataset are all found under this directory, easily identifiable by their use of the CSV file format, the "_data" suffix at the end of the filename, and the use of <a href="./Schema%20Reference/meta/defs/keywords.md">"keyword"</a> formatting to identify relevant properties of each file. An example of a "canonical" data file might be "data/primary_data/study-1a_participant-145_data.csv".</p>
+<h2 id="validation">Validation</h2>
+<p>The Psych-DS team is developing a <a href="https://github.com/psych-ds/psychds-validator">suite of applications</a> across multiple frameworks (browser-based, node.js, Python, R) that researchers can use to quickly confirm that their datasets are compliant with our data standard. These validators function as the "ground truth" for Psych-DS compliance, such that any dataset which the validator approves is considered "valid" for all intents and purposes. </p>
+<p>These validator tools all make use of the official <a href="https://github.com/psych-ds/psych-DS/tree/master/schema_model">schema model</a> to derive the set of rules/checks that are applied during validation, which means that any updates made to the schema model are immediately reflected across all frameworks. </p>
+<p>For most researchers, the easiest tool to make use of is the<a href="link">browser-based validator</a>, whose usage is self-explanatory, but further guidance can be found at <a href="link">Using the Psych-DS Validator</a>, which also covers how to install the various non-browser implementations as well as how to integrate the tools programmatically into existing pipelines.</p>
+<p>The primary function of the validator is to provide an output of either <strong>VALID</strong> or <strong>INVALID</strong>, and any input deemed <strong>INVALID</strong> is accompanied by a full enumeration of the specific errors that were detected, including pointers to the files/fields that produced them. Additionally, if the "showWarnings" flag is selected prior to validation, the tool will provide helpful warnings about elements that are recommended rather than required, which can help researchers go beyond creating datasets that are merely satisfactory and toward the ideal of datasets that are maximally informative and comprehensive.</p>
+<p><strong>DISCLAIMER: the Psych-DS team takes the anonymity and proprietary nature of certain datasets as a primary concern, and as such, all validator tools were designed so that no dataset is ever uploaded or stored in any way during validation. For instance, when using the browser-based tool, datasets that are input for validation are inspected and checked using client-side javascript. No data is ever sent to a web server, and there is no database attached to the application.</strong></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="js/jquery-3.6.0.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script>
+            var base_url = ".",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="js/base.js"></script>
+        <script src="search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
+
+<!--
+MkDocs version : 1.5.3
+Build Date UTC : 2024-04-01 14:27:08.039246+00:00
+-->

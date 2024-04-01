@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Getting Started - My Docs</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">My Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Guides <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="./" class="dropdown-item active">Getting Started</a>
+</li>
+                                    
+<li>
+    <a href="../advanced_practices/" class="dropdown-item">Advanced Practices</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../rules_and_conventions/" class="nav-link">Rules and Conventions</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../schema_reference/**/*.md" class="nav-link">Schema Reference</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href=".." class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../advanced_practices/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#getting-started-with-psych-ds" class="nav-link">Getting Started with Psych-DS</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#formatting-data-files" class="nav-link">Formatting Data Files</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#formatting-folders" class="nav-link">Formatting Folders</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#creating-metadata" class="nav-link">Creating Metadata</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#adding-peripheral-materials" class="nav-link">Adding Peripheral Materials</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#validating-dataset" class="nav-link">Validating Dataset</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="getting-started-with-psych-ds">Getting Started with Psych-DS</h1>
+<p>Congratulations on deciding to join the Psych-DS community! By adopting our data standard, not only do you benefit from having a consistent system for structuring and annotating your own scientific data, but you grow the Psych-DS ecosystem as well, increasing the interoperability and organization of behavioral datasets at large.</p>
+<p>This guide will restate some principles that can be found elsewhere in the <a href="../rules_and_conventions/">Psych-DS Rules and Conventions</a> and the Schema Reference (see navigation bar), but with more of an orientation towards setting up one's first Psych-DS compliant dataset.</p>
+<h2 id="formatting-data-files">Formatting Data Files</h2>
+<p>Before we begin, let's assume that you have one or more <a href="./Schema%20Reference/objects/files/DataFile.md">data files</a> that comprise the results of one or more scientific experiments. The content of these files can vary greatly; they may be responses from a Qualtrics Survey, reaction times and responses from a self-paced reading study, answers to a pen-and-paper questionnaire, etc. </p>
+<p>The first order of business, which may already be taken care of, is to compile your results into any number of tabular <a href="https://www.geeksforgeeks.org/csv-file-format/">CSV</a> files. If you're unfamiliar, CSVs (comma-separated values) are one of several file formats for storing tabular data, i.e. spreadsheets. CSVs can be formatted manually or downloaded/exported from any spreadsheet software, such as Excel, Sheets, or Numbers.</p>
+<p>Once your data files are formatted as CSVs, you'll have to name them according to the Psych-DS rules. This means choosing a series of <a href="./Schema%20Reference/meta/defs/keywords.md">keyword</a> pairs to identify each file. To do this, just think of what makes each file different from the others. For instance, if one file represents the results for a whole experiment, the keyword <strong>"study-YourStudy"</strong> may be sufficient. If each file corresponds to a different subject/participant, you might use keywords like <strong>"study-YourStudy"</strong> and <strong>"subject-001"</strong>. Once you've decided on these keyword identifiers, you can string them together using underscores ("_") and append the <strong>"_data"</strong> suffix to mark the file as one of your dataset's "official" data files. The result might look something like this: <strong>"study-YourStudy_subject-001_data.csv"</strong>.</p>
+<h2 id="formatting-folders">Formatting Folders</h2>
+<p>To begin with, you'll need a folder to represent your dataset in general. Create an empty folder and name it something that identifies the overarching dataset, like <strong>"MyTestExperiment"</strong>. Within that folder, create another folder called <strong>"data"</strong>. This part is non-negotiable: all Psych-DS compliant datasets must have a <strong>"data"</strong> directory in which all of the official data files for the dataset are stored. </p>
+<p>We can think of our dataset's "official" data files as the ones that are fully cleaned and processed, those that we would input to R for statistical analysis or share publicly as the results of the experiment. Other files, like those in different stages of pre-processing or stored in formats other than CSVs, may also be stored in the data directory, but only those files that follow keyword formatting, use the "_data" suffix, and have ".csv" as an extension will be considered "official" and be subject to Psych-DS validation.</p>
+<p>Within the data directory, you can create any folder structure that suits your needs. Perhaps you want to create a subfolder for each stage of a study, or a subfolder for each month during which sessions were conducted. Regardless of how many subfolders intervene between the data directory and a given data file, Psych-DS will still detect the file and subject it to validation. This principle, for our purposes, is called <a href="./Schema%20Reference/meta/defs/arbitraryNesting.md">"arbitrary nesting"</a>.</p>
+<h2 id="creating-metadata">Creating Metadata</h2>
+<p>One of the central goals of Psych-DS is to foster good metadata practices. Metadata, to put it simply, is data <em>about</em> data. When we encounter a dataset, we don't just want to know what the results were, we want to know about their context. Who conducted the study, when was it conducted, what publications resulted from it, how should it be cited? Rich, informative metadata files can provide answers to all these questions and more in a standardized, machine readable format.</p>
+<p>Each Psych-DS dataset is required to include a <a href="./Schema%20Reference/objects/files/dataset_description.md">global metadata file</a>, called <strong>"dataset_description.json"</strong>, in the root folder. As the extension suggests, it must be formatted as a valid <a href="https://www.json.org/json-en.html">JSON</a> file, and additionally, it must function as a valid <a href="https://json-ld.org/">JSON-LD</a> file, which is a <a href="https://cambridgesemantics.com/blog/semantic-university/intro-semantic-web/intro-linked-data/">linked data</a> format. </p>
+<p>If you find the concept of "linked data" intimidating, there's no need to worry. It's easy for anyone to create a valid metadata file by modifying one of our basic examples or by making use of user-friendly tools like the <a href="https://cedar.metadatacenter.org/instances/create/https://repo.metadatacenter.org/templates/7aa9b3f5-caad-4c07-b630-3f1cd5c4e111?folderId=https:%2F%2Frepo.metadatacenter.org%2Ffolders%2F9818586d-280a-416e-b08f-2d6c4da22e50">CEDAR Metadata Wizard</a>. For purposes of clarity, let's try working from the following example:</p>
+<pre><code>{
+    &quot;@context&quot;:&quot;https://schema.org/&quot;,
+    &quot;@type&quot;:&quot;Dataset&quot;,
+    &quot;name&quot;:&quot;MyTestExperiment&quot;,
+    &quot;description&quot;:&quot;This is an experiment that I am using to try out Psych-DS!&quot;,
+    &quot;variableMeasured&quot;:[&quot;variable1&quot;,&quot;variable2&quot;,&quot;variable3&quot;]
+}
+</code></pre>
+<p>As we can see, a JSON file is enclosed in brackets and contains a series of "key":"value" pairings separated by commas. <a href="./Schema%20Reference/objects/metadata/name.md">"name"</a>, <a href="./Schema%20Reference/objects/metadata/description.md">"description"</a>, and <a href="./Schema%20Reference/objects/metadata/variableMeasured.md">"variableMeasured"</a> are <strong>REQUIRED</strong> fields in Psych-DS, so they are included here. Other fields, such as <a href="./Schema%20Reference/objects/metadata/author.md">"author"</a>, <a href="./Schema%20Reference/objects/metadata/citation.md">"citation"</a>, and <a href="./Schema%20Reference/objects/metadata/funder.md">"funder"</a> are <strong>RECOMMENDED</strong>. The full list of metadata fields, along with their definitions, can be found under "Schema_Reference/objects/metadata" in the navigation bar.</p>
+<p>The purpose of the "variableMeasured" field is to enumerate the various column headers used across all of your data files. So, if your dataset has two data files, and in the first, the column headers are "variable1", "variable2", "variable3", and in the second, they are "variable1" and "variable4", then the value for your "variableMeasured" field should be <code>["variable1","variable2","variable3","variable4"]</code>. As a convenience feature, if you input a dataset with an empty "variableMeasured" field into the Psych-DS validator, it will output a suggested value for you based on the data files that it finds.</p>
+<h3 id="linking-metadata">Linking Metadata</h3>
+<p>The <strong>"@context"</strong> and <strong>"@type"</strong> fields are part of what makes this file function as a  "JSON-LD" linked data object. If you want, you can just include these exactly as they're shown in the above example and never think about them again. </p>
+<p>For a little more context, when building linked data objects, we want to use <a href="https://rubenverborgh.github.io/WebFundamentals/semantic-web/">semantic vocabularies</a> for our keys and some of our values. This makes the terms we use standardized, unambiguous, and interpretable by machines. So, when we list "https://schema.org/" under our "@context", we are establishing the <a href="https://schema.org">Schema.org ontology</a> as the default <a href="./Schema%20Reference/meta/defs/namespace.md">namespace</a> for our metadata. The ontology, which is widely adopted across the web, is essentially a heirarchy of concepts. So, the most generic concept in the ontology is a <a href="https://schema.org/Thing">"Thing"</a>, whereas a more specific concept might be something like a <a href="https://schema.org/Dataset">"Dataset"</a>. Each of these concepts has a definition as well as certain properties associated with it.</p>
+<p>When we put "Dataset" as the value for the "@type" property, we are saying that the entity our metadata describes is a Dataset corresponding to the Schema.org definition. As such, our Dataset object can take certain values, and this is where valid metadata fields like "name", "description", and "variableMeasured" are derived from.</p>
+<p>Linked data is a powerful tool, and there are other rules that govern how we can use it to create rich, informative metadata, but we'll leave thing here for now. For those interested in taking a deeper dive into this and other concepts, check out the <a href="link">Advanced Practices</a> page.</p>
+<h2 id="adding-peripheral-materials">Adding Peripheral Materials</h2>
+<p>In this guide, we've specifically intended to walk you through the base requirements for a Psych-DS compliant dataset, but that doesn't mean that you can't add additional materials related to your experiment(s). Psych-DS encourages the inclusion of such subdirectories within the root directory as <a href="./Schema%20Reference/objects/files/materials.md">materials</a> (for any stimuli, images, videos, etc. used in the process of administering your experiment), <a href="./Schema%20Reference/objects/files/documentation.md">documentation</a> (for any documents used in the process, such as consent/debriefing forms), <a href="./Schema%20Reference/objects/files/analysis.md">analysis</a> (for any code or other tools used to analyze your data files), and <a href="./Schema%20Reference/objects/files/products.md">products</a> (for any publications, presentations or posters that resulted from your work). It is also recommended to include a <a href="./Schema%20Reference/objects/files/README.md">README.md</a> file for general information and a <a href="./Schema%20Reference/objects/files/CHANGES.md">CHANGES.md</a> file to log any changes or updates that you've made since first compiling the dataset.</p>
+<p>You may add any other arbitrary subdirectories according to your specific needs and preferences. This may result in a validator warning, indicating that you've included files that don't match the schema specifications, but you can suppress these by adding any directories/files that you like to the <a href="link">".psychds-ignore"</a> file.</p>
+<h2 id="validating-dataset">Validating Dataset</h2>
+<p>Now that you have all the necessary pieces in place, it's time to visit the <a href="link">Psych-DS Validator Tool</a> and confirm that what you have is a Psych-DS compliant dataset! Once you have it open, simply click "select dataset" and indicate your <strong>MyTestExperiment</strong> folder. You'll receive your validation results, and if it says <strong>VALID</strong>, then you're good to go! If it says <strong>INVALID</strong>, then you'll have to look through the errors reported by the validator and make whatever small adjustments to your dataset are necessary. (Note: if you'd like to see warnings about best practices in addition to error outputs, check the <strong>showWarnings</strong> box and run the validation process again.)</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/jquery-3.6.0.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

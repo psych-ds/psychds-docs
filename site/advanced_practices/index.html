@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Advanced Practices - My Docs</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">My Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Guides <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../getting_started/" class="dropdown-item">Getting Started</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">Advanced Practices</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../rules_and_conventions/" class="nav-link">Rules and Conventions</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../schema_reference/**/*.md" class="nav-link">Schema Reference</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../getting_started/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../rules_and_conventions/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#advanced-practices" class="nav-link">Advanced Practices</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#json-ld" class="nav-link">JSON-LD</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#schemaorg" class="nav-link">Schema.org</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="advanced-practices">Advanced Practices</h1>
+<h2 id="json-ld">JSON-LD</h2>
+<p>JSON-LD is a more flexible and complex data format than the minimal requirements of Psych-DS would suggest. As a default, our standard recommends setting one default <a href="link">namespace</a>, "https://schema.org", and using it throughout. This makes sense, given that the main metadata object in a Psych-DS dataset is required to use the type "https://schema.org/Dataset", and the required/recommended fields for this object are Schema.org properties.</p>
+<p>Psych-DS, though, does not prohibit the usage of other namespaces, as some datasets and context may require more specified or fine-grained vocabularies than the Schema.org ontology can provide. The caveat here is that the Psych-DS validator is not capable of type-checking these external namespaces, or even confirming their validity as semantic vocabularies at all, whereas the validator does contain a full reference to the schema.org ontology and can confirm the validity of any usage.</p>
+<p>In the tutorials and examples provided elsewhere in the documentation, the Schema.org namespace is declared as a default by using the format <code>"@context": "https://schema.org/"</code>. The result of this usage is that all types and properties found within the metadata object are prepended with the Schema.org namespace and interpreted as Schema.org objects and properties. Alternatively, multiple namespaces can be declared within the "@context" property, and each of them is given a shorthand label, which must then be used for any type/property to which the namespace applies Here is a full example:</p>
+<pre><code>{
+    &quot;@context&quot;:{
+        &quot;schema&quot;:&quot;https://schema.org/&quot;,
+        &quot;foaf&quot;:&quot;http://xmlns.com/foaf/0.1/&quot;
+    },
+    &quot;@type&quot;:&quot;schema:Dataset&quot;,
+    &quot;schema:name&quot;: &quot;Test Dataset&quot;,
+    &quot;schema:description&quot;: &quot;Test Description&quot;,
+    &quot;schema:variableMeasured&quot;:[&quot;a&quot;,&quot;b&quot;,&quot;c&quot;],
+    &quot;foaf:externalProperty&quot;: &quot;Test Value&quot;
+}
+</code></pre>
+<p>The above metadata object is just as valid as any other example, since declaring the Schema.org namespace under the shorthand "schema" and applying this to all relevant objects has the same effect as declaring Schema.org as the default namespace and having the namespace apply automatically.</p>
+<p>There are a number of other privileged JSON-LD vocabulary terms besides just "@context" and "@type", and though they go beyond the scope of this tutorial, they are free to be used however each researcher sees fit. The functions and constraints that define proper usage of these terms can be found in the <a href="link">JSON-LD grammar</a>, and the Psych-DS validator will provide appropriate and descriptive errors whenever these terms are used in such a way that violates the JSON-LD grammar.</p>
+<h3 id="expanded-vs-compact-form">Expanded vs Compact Form</h3>
+<p>In most examples online, JSON-LD objects are presented in <a href="link">compact form</a>, which means that a "@context" property is included which is expected to apply to all types and properties used within the object. On the technical side of things, when JSON-LD is actually being used by machines for linked data purposes, it will be represented in <a href="link">expanded form</a>, which removes the "@context" property, applies the namespaces therein to all appropriate types/properties, and reformats all basic values such as strings and urls into untyped objects with either "@value" or "@id" properties. Here is an example of the JSON-LD object from the previous section in its expanded form:</p>
+<pre><code>[
+  {
+    &quot;@type&quot;: [
+      &quot;https://schema.org/Dataset&quot;
+    ],
+    &quot;http://xmlns.com/foaf/0.1/externalProperty&quot;: [
+      {
+        &quot;@value&quot;: &quot;Test Value&quot;
+      }
+    ],
+    &quot;https://schema.org/description&quot;: [
+      {
+        &quot;@value&quot;: &quot;Test Description&quot;
+      }
+    ],
+    &quot;https://schema.org/name&quot;: [
+      {
+        &quot;@value&quot;: &quot;Test Dataset&quot;
+      }
+    ],
+    &quot;https://schema.org/variableMeasured&quot;: [
+      {
+        &quot;@value&quot;: &quot;a&quot;
+      },
+      {
+        &quot;@value&quot;: &quot;b&quot;
+      },
+      {
+        &quot;@value&quot;: &quot;c&quot;
+      }
+    ]
+  }
+]
+</code></pre>
+<p>As you can see, the "@context" property is no longer present, but the "schema" and "foaf" shorthands have been replaced by the full correspondent namespace wherever they were applied. Additionally, for example, instead of having an array of strings as its value, "variableMeasured" has an array of objects whose only property is "@value", whose value is the original string in question.</p>
+<p>In the process of validation, all metadata objects are transformed internally to the expanded form, so it is perfectly valid under Psych-DS to represent metadata in either compact or expanded form, as they are merely different representations of the same underlying object.</p>
+<h2 id="schemaorg">Schema.org</h2>
+<p>For most researcher's purposes, the vocabulary provided by Schema.org should be perfectly sufficient to create richly informative and structured metadata objects. As mentioned elsewhere in the documentation, most Schema.org properties can either take bare strings, URLs, or complex objects as their values.</p>
+<p>In an ideal metadata object, bare strings should be avoided whenever possible, as they represent the point at which metadata stops being useful for machine-readable purposes. For instance, let's take the "author" property of the "Dataset" type as an example. To satisfy Psych-DS's base requirements, having a string such as "John Doe" as the value of "author" is sufficient, but it has severe limitations when it comes to linked data practice. The most obvious reason is that very few names in the world are universally unique (especially ones like "John Doe"), so including just the name is not actually sufficient for either humans or machines when it comes to identifying the true author of the dataset. </p>
+<p>In a slightly improved scenario, one might include a link to an informative webpage about the author rather than a string. For instance, many researchers will have an institutional webpage such as "university.edu/faculty/john-doe". This works well for disambiguating the individual and providing context for humans, but since the personal page likely has an idiosyncratic structure with variable information, it is less useful for purposes of machine-readability. Third party identification services like <a href="link">ORCID ID</a> are useful for guaranteeing unique, universal IDs for individuals (which take the form of web URLs, or URIs) that are widely adopted across research communities. This widespread adoption is a big plus when it comes to metadata, as the more researchers who use an ORCID ID to refer to a given researcher in their metadata, the more this individual's work can be consistently identified and compiled in the process of searching for data.</p>
+<p>In the ideal scenario, the value of "author" would be a typed JSON-LD object. In this way, not only can the the individual be uniquely identified with an "@id", but any additional properties/relations can be applied and associated with that individual. Below is an example:</p>
+<pre><code>{
+    ...
+    &quot;author&quot;:{
+        &quot;@type&quot;: &quot;Person&quot;,
+        &quot;@id&quot;:&quot;https://orcid.org/0022-0002-3833-3472&quot;,
+        &quot;name&quot;:&quot;Test Person&quot;,
+        &quot;nationality&quot;:&quot;USA&quot;,
+        &quot;gender&quot;:&quot;male&quot;,
+        &quot;children&quot;:[
+            {
+                &quot;@type&quot;:&quot;Person&quot;,
+                &quot;@id&quot;:&quot;https://www.testpage.com/person&quot;,
+                &quot;name&quot;:&quot;Child Test&quot;
+            }
+        ],
+        &quot;jobTitle&quot;:&quot;Post-doctoral Researcher&quot;,
+        &quot;affiliation&quot;:&quot;https://www.mit.edu&quot;
+
+    }
+}
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/jquery-3.6.0.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

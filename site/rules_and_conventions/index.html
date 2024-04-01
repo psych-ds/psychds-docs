@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Rules and Conventions - My Docs</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">My Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Guides <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../getting_started/" class="dropdown-item">Getting Started</a>
+</li>
+                                    
+<li>
+    <a href="../advanced_practices/" class="dropdown-item">Advanced Practices</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem active">
+                                <a href="./" class="nav-link">Rules and Conventions</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../schema_reference/**/*.md" class="nav-link">Schema Reference</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../advanced_practices/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" class="nav-link disabled">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#psych-ds-rules-and-conventions" class="nav-link">Psych-DS Rules and Conventions</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#rules" class="nav-link">Rules</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#conventions" class="nav-link">Conventions</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="psych-ds-rules-and-conventions">Psych-DS Rules and Conventions</h1>
+<p>The full technical reference for the Psych-DS rules and conventions is the <a href="https://github.com/psych-ds/psych-DS/tree/master/schema_model">schema model</a>, whose markdown conversion lives in the "Schema Reference" section of the docs (found in navigation bar above). For ease of access and reference, this page enumerates the most crucial elements of the schema in bulleted form, and it can be used as a checklist for thinking about Pysch-DS compliance.</p>
+<h2 id="rules">Rules</h2>
+<p><strong>(Failure to satisfy these rules results in an error)</strong></p>
+<ul>
+<li>Datasets must contain a <a href="./Schema%20Reference/objects/files/dataset_description.md">global metadata file</a> named "dataset_description.json" in the root directory.<ul>
+<li>The file must use valid <a href="https://www.json.org/json-en.html">JSON formatting</a> and must be a valid <a href="https://json-ld.org/">JSON-LD</a> linked data file.</li>
+<li>The file must contain the following fields:<ul>
+<li><a href="./Schema%20Reference/objects/metadata/name.md">name</a></li>
+<li><a href="./Schema%20Reference/objects/metadata/description.md">description</a></li>
+<li><a href="./Schema%20Reference/objects/metadata/variableMeasured.md">variableMeasured</a></li>
+</ul>
+</li>
+<li>These required fields must use the schema.org <a href="./Schema%20Reference/meta/defs/namespace.md">namespace</a>, either by including a "@context" field with the value "https://schema.org", or by prepending the namespace directly in the field, as in "https://schema.org/description".</li>
+<li>The file must have a field called "@type" or "type" with the value "Dataset" or "https://schema.org/Dataset"</li>
+<li>The "variableMeasured" field must be an array containing all of the column headers found across all the official data files for the dataset, either in the form of strings or as JSON objects with "PropertyValue" as their "@type".</li>
+<li>The following is an example of a valid global metadata file:</li>
+</ul>
+</li>
+</ul>
+<pre><code>{
+    &quot;name&quot;: &quot;Example dataset&quot;,
+    &quot;description&quot;: &quot;This dataset is just an example&quot;,
+    &quot;variableMeasured&quot;: ['var1','var2','var3'],
+    &quot;@type&quot;: &quot;Dataset&quot;,
+    &quot;@context&quot;: &quot;https://schema.org&quot;
+}
+</code></pre>
+<ul>
+<li>Datasets must contain a <a href="./Schema%20Reference/objects/files/data.md">subdirectory called "data"</a>, located within the root directory.</li>
+<li>Datasets must include at least one valid <a href="./Schema%20Reference/objects/files/DataFile.md">data file</a> within the "data" subdirectory.<ul>
+<li>Data files can be located anywhere under the "data" subdirectory, under any number of <a href="./Schema%20Reference/meta/defs/arbitraryNesting.md">nested subdirectories</a>. For instance, they can be located directly within "data", or they could be found within nested subdirectories, like "data/primary_data".</li>
+<li>Data files must use the ".csv" <a href="./Schema%20Reference/meta/defs/extension.md">extension</a> and be formatted as <a href="https://www.geeksforgeeks.org/csv-file-format/">valid CSV files</a>.<ul>
+<li>CSVs must be <a href="https://blog.hubspot.com/website/what-is-utf-8">utf-8 encoded</a> and any commas used within the data itself (not as a delimiter within the file format) must be enclosed by double-quotes (")</li>
+<li>CSV files must include headers in the first row.</li>
+<li>Each row of the CSV must have the same number of cells as the header.</li>
+</ul>
+</li>
+<li>Names for data files must end with the <a href="./Schema%20Reference/meta/defs/suffix.md">suffix</a> "_data".</li>
+<li>Names for data files must use <a href="./Schema%20Reference/rules/files/tabular_data/data/Datafile.md">keyword formatting</a>, described below:<ul>
+<li><a href="./Schema%20Reference/meta/defs/keywords.md">keywords</a> are pairs of keys and values in the format "<key>-<value>"<ul>
+<li>keys can be any sequence of lowercase alphabetic characters ("a-z")</li>
+<li>values can be any sequence of upper- and lowercase alphanumeric characters ("a-zA-Z0-9")</li>
+</ul>
+</li>
+<li>Multiple keywords can be combined together using underscores ("_")</li>
+</ul>
+</li>
+<li>If a data file includes a column with the header "row_id", then that column must contain a unique value in every row.</li>
+<li>An example of a valid data file: "data/primary_data/study-123a_subject-aaa1_session-3_data.csv"<ul>
+<li>In this example, "study-123a_subject-aaa1_session-3" are the <strong>keywords</strong>, "_data" is the <strong>suffix</strong>, and ".csv" is the <strong>extension</strong>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="conventions">Conventions</h2>
+<p><strong>(Failure to follow these recommendations results in a warning)</strong></p>
+<ul>
+<li>Additional metadata files may be included, called <a href="./Schema%20Reference/objects/files/DirectoryMetadata.md">directory metadata</a> and <a href="./Schema%20Reference/objects/files/SidecarMetadata.md">sidecar metadata</a> files. These are to be used when certain aspects of the metadata only apply to a subset of data files, and the same rules of formatting apply to these as with the global metadata file.<ul>
+<li>To apply metadata fields to an entire subdirectory under the "data" directory, a file called "directory_metadata.json" can be added to that subdirectory.</li>
+<li>To apply metadata fields to a specific data file, a file that shares the exact same name as the data file in question, but with the ".csv" extension swapped for ".json". So, if the data file is called "study-123a_subject-aaa1_session-3_data.csv", then the sidecar file must be called "study-123a_subject-aaa1_session-3_data.json" and be placed in the same directory.</li>
+</ul>
+</li>
+<li>In the validation process, these additional metadata files are combined with the global metadata to form a <a href="./Schema%20Reference/objects/files/CompiledMetadata.md">compiled metadata</a> object for each individual data file. The files are combined according to a principle of <a href="./Schema%20Reference/objects/common_principles/inheritance.md">inheritance</a>, whereby any fields from a higher-level (i.e. more general, with the global file being the most general) metadata file are replaced if those fields appear in a lower-level file. </li>
+</ul>
+<pre><code>
+So, if the global metadata looks like this:
+
+{
+    &quot;name&quot;: &quot;Example dataset&quot;,
+    &quot;description&quot;: &quot;This dataset is just an example&quot;,
+    &quot;variableMeasured&quot;: ['var1','var2','var3'],
+    &quot;@type&quot;: &quot;Dataset&quot;,
+    &quot;@context&quot;: &quot;https://schema.org&quot;
+}
+
+and the sidecar metadata looks like this:
+
+{
+    &quot;variableMeasured&quot;:[&quot;var4&quot;]
+}
+
+then the resulting compiled metadata object would look like this:
+
+{
+    &quot;name&quot;: &quot;Example dataset&quot;,
+    &quot;description&quot;: &quot;This dataset is just an example&quot;,
+    &quot;variableMeasured&quot;: ['var4'],
+    &quot;@type&quot;: &quot;Dataset&quot;,
+    &quot;@context&quot;: &quot;https://schema.org&quot;
+}
+
+Note how the &quot;var4&quot; did not get *added* to the &quot;variableMeasured&quot; field, but instead the entire ['var4'] array *replaced* the original value of field.
+</code></pre>
+<ul>
+<li>Metadata files should conform to the type constraints implicit in the Schema.org ontology. For instance, although the value for the "author" field can be a string representing a name or a URL representing an individual (such as an ORCID ID), it can also be a JSON of with <a href="https://schema.org/Person">"Person"</a> as its "@type". The <a href="https://schema.org/author">Schema.org entry for "author"</a> specifies that the value of author can be a "Person" or anything more specific than a "Person", such as a <a href="https://schema.org/Patient">"Patient"</a>. If one were to put something incompatible like a <a href="https://schema.org/PropertyValue">"PropertyValue"</a> as the value for "author", the Psych-DS will throw a warning, as this violates Schema.org type checking.<ul>
+<li>Additionally, warnings will be thrown if a JSON object within the metadata contains a property that is not on Schema.org's list of properties for that type.</li>
+</ul>
+</li>
+<li>It is recommended to include such peripheral subdirectories as <a href="./Schema%20Reference/objects/files/materials.md">materials</a>, <a href="./Schema%20Reference/objects/files/documentation.md">documentation</a>, <a href="./Schema%20Reference/objects/files/analysis.md">analysis</a>, and <a href="./Schema%20Reference/objects/files/products.md">products</a> within the root directory, as these provide important context for the data at hand and make for a more comprehensive dataset.</li>
+<li><a href="./Schema%20Reference/meta/defs/namespace.md">Namespaces</a> other than "https://schema.org" are permitted to be used in metadata files, but a warning will be thrown as the Psych-DS validator has no way of confirming the validity of these external namespaces.</li>
+<li>When choosing keywords during file naming, it is recommended to choose them from the <a href="./Schema%20Reference/meta/defs/keywords.md">list</a> of canonical Psych-DS keywords, keeping in mind the definitions provided within the schema. It is permitted to use keywords other than these, but each researcher/lab/community should make sure to adhere to consistent, conventional definitions for these.</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/jquery-3.6.0.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
