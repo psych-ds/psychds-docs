@@ -1,7 +1,7 @@
 # MissingRequiredElement
 
-**CODE**: MISSING_REQUIRED_ELEMENT
+[**code**](/Schema Reference/meta/defs/code): MISSING_REQUIRED_ELEMENT
 
-**level**: error
+[**level**](/Schema Reference/meta/defs/level): error
 
-**reason**: Your dataset is missing an element that is required under the psych-DS specification.
+[**reason**](/Schema Reference/meta/defs/reason): Your dataset is missing an element that is required under the psych-DS specification.

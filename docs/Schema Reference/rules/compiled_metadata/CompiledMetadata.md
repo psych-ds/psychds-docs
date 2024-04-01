@@ -1,6 +1,12 @@
-# [CompiledMetadata](./psychDS-docs/objects/files/CompiledMetadata.md "The metadata object that results from the combination of global metadata and directory- and file-level metadata files according to the rules of inheritance.")
+# [CompiledMetadata](/Schema Reference/objects/files/CompiledMetadata "The metadata object that results from the combination of global metadata and directory- and file-level metadata files according to the rules of inheritance.")
 
-- [**fields**](./psychDS-docs/meta/defs/fields.md "Set of key/value pairs defining the fields that are expected to occur in a given file object, and whether they are required or recommended."): {'name': 'required', 'description': 'required', 'variableMeasured': 'required', 'author': 'recommended', 'citation': 'recommended', 'license': 'recommended', 'funder': 'recommended', 'url': 'recommended', 'identifier': 'recommended', 'privacyPolicy': 'recommended', 'keywords': 'recommended'}
-- [**namespace**](./psychDS-docs/meta/defs/namespace.md "URL identifying the required namespace to be used for required fields in the file object. Namespaces are web prefixes that point to ontologies which contain definitions of semantic vocabularies."): http://schema.org/
-- [**jsonld**](./psychDS-docs/meta/defs/jsonld.md "Indicator for whether the given file object is required to be a valid JSON-LD object."): True
-- [**containsAllColumns**](./psychDS-docs/meta/defs/containsAllColumns.md "The metadata object, after all inherited sidecars are accounted for, must contain a 'variableMeasured' property listing at least all of the column headers found in the datafile at hand."): True
+### Definition:
+
+The metadata object that results from the combination of global metadata and directory- and file-level metadata files according to the rules of inheritance.
+
+### Properties:
+
+- [**fields**](/Schema Reference/meta/defs/fields "Set of key/value pairs defining the fields that are expected to occur in a given file object, and whether they are required or recommended."): {'name': 'required', 'description': 'required', 'variableMeasured': 'required', 'author': 'recommended', 'citation': 'recommended', 'license': 'recommended', 'funder': 'recommended', 'url': 'recommended', 'identifier': 'recommended', 'privacyPolicy': 'recommended', 'keywords': 'recommended'}
+- [**namespace**](/Schema Reference/meta/defs/namespace "URL identifying the required namespace to be used for required fields in the file object. Namespaces are web prefixes that point to ontologies which contain definitions of semantic vocabularies."): http://schema.org/
+- [**jsonld**](/Schema Reference/meta/defs/jsonld "Indicator for whether the given file object is required to be a valid JSON-LD object."): True
+- [**containsAllColumns**](/Schema Reference/meta/defs/containsAllColumns "The metadata object, after all inherited sidecars are accounted for, must contain a 'variableMeasured' property listing at least all of the column headers found in the datafile at hand."): True

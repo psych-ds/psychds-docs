@@ -1,12 +1,18 @@
-# [materials](./psychDS-docs/objects/files/materials.md "A directory in which to store any materials used to conduct the study.")
+# [materials](/Schema Reference/objects/files/materials "A directory in which to store any materials used to conduct the study.")
 
-- [**path**](./psychDS-docs/meta/defs/path.md "Full path of the current file"): /materials
-- [**directory**](./psychDS-docs/meta/defs/directory.md "Indicator for whether a given object is expected to be a directory or a file."): True
+### Definition:
+
+A directory in which to store any materials used to conduct the study.
+
+### Properties:
+
+- [**path**](/Schema Reference/meta/defs/path "Full path of the current file"): /materials
+- [**directory**](/Schema Reference/meta/defs/directory "Indicator for whether a given object is expected to be a directory or a file."): True
 
 **If file/directory not found**:
 
-code: MISSING_MATERIALS_DIRECTORY
+[**code**](/Schema Reference/meta/defs/code): MISSING_MATERIALS_DIRECTORY
 
-level: ignore
+[**level**](/Schema Reference/meta/defs/level): ignore
 
-reason: It is recommended to include subdirectory named 'materials' in the base directory
+[**reason**](/Schema Reference/meta/defs/reason): It is recommended to include subdirectory named 'materials' in the base directory

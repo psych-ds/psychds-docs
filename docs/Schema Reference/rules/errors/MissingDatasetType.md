@@ -1,7 +1,7 @@
 # MissingDatasetType
 
-**CODE**: MISSING_DATASET_TYPE
+[**code**](/Schema Reference/meta/defs/code): MISSING_DATASET_TYPE
 
-**level**: error
+[**level**](/Schema Reference/meta/defs/level): error
 
-**reason**: Your metadata is missing the "@type/type" property, which is required.
+[**reason**](/Schema Reference/meta/defs/reason): Your metadata is missing the "@type/type" property, which is required.

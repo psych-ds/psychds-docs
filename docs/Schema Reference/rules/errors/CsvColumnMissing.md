@@ -1,7 +1,7 @@
 # CsvColumnMissing
 
-**CODE**: CSV_COLUMN_MISSING
+[**code**](/Schema Reference/meta/defs/code): CSV_COLUMN_MISSING
 
-**level**: error
+[**level**](/Schema Reference/meta/defs/level): error
 
-**reason**: A required column is missing
+[**reason**](/Schema Reference/meta/defs/reason): A required column is missing

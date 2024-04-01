@@ -1,7 +1,7 @@
 # ExtensionMismatch
 
-**CODE**: EXTENSION_MISMATCH
+[**code**](/Schema Reference/meta/defs/code): EXTENSION_MISMATCH
 
-**level**: error
+[**level**](/Schema Reference/meta/defs/level): error
 
-**reason**: Extension used by file does not match allowed extensions for its suffix.
+[**reason**](/Schema Reference/meta/defs/reason): Extension used by file does not match allowed extensions for its suffix.

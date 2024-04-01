@@ -1,12 +1,18 @@
-# [data](./psychDS-docs/objects/files/data.md "The directory in which to store all datafiles from the dataset.")
+# [data](/Schema Reference/objects/files/data "The directory in which to store all datafiles from the dataset.")
 
-- [**path**](./psychDS-docs/meta/defs/path.md "Full path of the current file"): /data
-- [**directory**](./psychDS-docs/meta/defs/directory.md "Indicator for whether a given object is expected to be a directory or a file."): True
+### Definition:
+
+The directory in which to store all datafiles from the dataset.
+
+### Properties:
+
+- [**path**](/Schema Reference/meta/defs/path "Full path of the current file"): /data
+- [**directory**](/Schema Reference/meta/defs/directory "Indicator for whether a given object is expected to be a directory or a file."): True
 
 **If file/directory not found**:
 
-code: MISSING_DATA_DIRECTORY
+[**code**](/Schema Reference/meta/defs/code): MISSING_DATA_DIRECTORY
 
-level: error
+[**level**](/Schema Reference/meta/defs/level): error
 
-reason: It is required to include a subdirectory named 'data' in the base directory
+[**reason**](/Schema Reference/meta/defs/reason): It is required to include a subdirectory named 'data' in the base directory

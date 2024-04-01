@@ -1,4 +1,4 @@
-# Psych-DS Rules and Conventions
+# Rules and Conventions
 
 The full technical reference for the Psych-DS rules and conventions is the [schema model](https://github.com/psych-ds/psych-DS/tree/master/schema_model), whose markdown conversion lives in the "Schema Reference" section of the docs (found in navigation bar above). For ease of access and reference, this page enumerates the most crucial elements of the schema in bulleted form, and it can be used as a checklist for thinking about Pysch-DS compliance.
 

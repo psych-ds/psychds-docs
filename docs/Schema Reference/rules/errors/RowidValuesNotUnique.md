@@ -1,7 +1,7 @@
 # RowidValuesNotUnique
 
-**CODE**: ROWID_VALUES_NOT_UNIQUE
+[**code**](/Schema Reference/meta/defs/code): ROWID_VALUES_NOT_UNIQUE
 
-**level**: error
+[**level**](/Schema Reference/meta/defs/level): error
 
-**reason**: Columns within CSV data files with the header "row_id" must contain unique values in every row.
+[**reason**](/Schema Reference/meta/defs/reason): Columns within CSV data files with the header "row_id" must contain unique values in every row.

@@ -1,7 +1,7 @@
 # JsonSchemaValidationError
 
-**CODE**: JSON_SCHEMA_VALIDATION_ERROR
+[**code**](/Schema Reference/meta/defs/code): JSON_SCHEMA_VALIDATION_ERROR
 
-**level**: error
+[**level**](/Schema Reference/meta/defs/level): error
 
-**reason**: Invalid JSON file. The file is not formatted according the schema.
+[**reason**](/Schema Reference/meta/defs/reason): Invalid JSON file. The file is not formatted according the schema.
