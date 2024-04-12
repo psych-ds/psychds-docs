@@ -6,6 +6,8 @@ The full technical reference for the Psych-DS rules and conventions is the [sche
 **(Failure to satisfy these rules results in an error)**
 
 - Datasets must contain a [global metadata file](./Schema%20Reference/objects/files/dataset_description.md) named "dataset_description.json" in the root directory.
+    [visual example]
+
     - The file must use valid [JSON formatting](https://www.json.org/json-en.html) and must be a valid [JSON-LD](https://json-ld.org/) linked data file.
     - The file must contain the following fields:
         - [name](./Schema%20Reference/objects/metadata/name.md)
@@ -13,7 +15,7 @@ The full technical reference for the Psych-DS rules and conventions is the [sche
         - [variableMeasured](./Schema%20Reference/objects/metadata/variableMeasured.md)
     - These required fields must use the schema.org [namespace](./Schema%20Reference/meta/defs/namespace.md), either by including a "@context" field with the value "https://schema.org", or by prepending the namespace directly in the field, as in "https://schema.org/description".
     - The file must have a field called "@type" or "type" with the value "Dataset" or "https://schema.org/Dataset"
-    - The "variableMeasured" field must be an array containing all of the column headers found across all the official data files for the dataset, either in the form of strings or as JSON objects with "PropertyValue" as their "@type".
+    - The "variableMeasured" field must be an array containing all of the column headers found across all the official data files for the dataset, either in the form of strings or as JSON objects with "PropertyValue" as their "@type". (It should be noted that some of the variables included in this field may not be "measured" in the literal sense, such as stimuli items, list assignments, trial numbers, etc.)
     - The following is an example of a valid global metadata file:
 
 ```
@@ -43,7 +45,51 @@ The full technical reference for the Psych-DS rules and conventions is the [sche
     - An example of a valid data file: "data/primary_data/study-123a_subject-aaa1_session-3_data.csv"
         - In this example, "study-123a_subject-aaa1_session-3" are the **keywords**, "_data" is the **suffix**, and ".csv" is the **extension**.
         
+### Example of a Psych-DS compliant dataset
+[screenshot4]
+#### Contents of dataset_description.json
+```
+{
+    "@context":"http://schema.org/",
+	"@type":"Dataset",
+	"name":"Psych-DS Example Dataset",
+	"description":"This is a 'skeleton' dataset for Psych-DS",
+	"schemaVersion":"Psych-DS 0.1.0",
+	"creator":[
+		{"@type":"Person",
+		 "name":"Melissa Kline"},
+		{"@type":"Person",
+		 "name":"Schmelissa Schmine",
+		 "birthDate":"1950-01-01"}],		
+	"citation":"Kline (2018). Not a real paper, No Journal, p. 1-24.",
+	"sameAs": "https://doi.org/doi-goes-here",
+	"temporalCoverage":"1950-01-01/2013-12-18",
+	"keywords":["foo","bar"],
+	"variableMeasured":[
+		{"type": "PropertyValue",
+			"unitText": "Participant",
+			"name": "participant_id",
+			"description": "Identity of each zebra. Provides a unique rowid in this dataset."
+		},
+		{"type": "PropertyValue",
+			"unitText": "Smoots",
+			"name": "length_in_smoots",
+			"description": "The length of a zebra, in smoots",
+			"minValue":"0"
+		},
+		{"type": "PropertyValue",
+			"unitCode": "C26",
+			"name": "milliseconds",
+			"description": "Time the zebra started running before/after the starting gun goes off"
+		},
+		{"type": "PropertyValue",
+			"unitText": null,
+			"name": "team",
+			"description": "Which team the zebra is on"
+		}]
+}
 
+```
 ## Conventions
 **(Failure to follow these recommendations results in a warning)**
 
@@ -83,7 +129,7 @@ then the resulting compiled metadata object would look like this:
 Note how the "var4" did not get *added* to the "variableMeasured" field, but instead the entire ['var4'] array *replaced* the original value of field.
 ```
 
-- Metadata files should conform to the type constraints implicit in the Schema.org ontology. For instance, although the value for the "author" field can be a string representing a name or a URL representing an individual (such as an ORCID ID), it can also be a JSON of with ["Person"](https://schema.org/Person) as its "@type". The [Schema.org entry for "author"](https://schema.org/author) specifies that the value of author can be a "Person" or anything more specific than a "Person", such as a ["Patient"](https://schema.org/Patient). If one were to put something incompatible like a ["PropertyValue"](https://schema.org/PropertyValue) as the value for "author", the Psych-DS will throw a warning, as this violates Schema.org type checking.
+- Metadata files should conform to the type constraints implicit in the Schema.org ontology. For instance, although the value for the "author" field can be a string representing a name or a URL representing an individual (such as an ORCID ID), it can also be a JSON object with ["Person"](https://schema.org/Person) as its "@type". The [Schema.org entry for "author"](https://schema.org/author) specifies that the value of author can be a "Person" or anything more specific than a "Person", such as a ["Patient"](https://schema.org/Patient). If one were to put something incompatible like a ["PropertyValue"](https://schema.org/PropertyValue) as the value for "author", the Psych-DS will throw a warning, as this violates Schema.org type checking.
     - Additionally, warnings will be thrown if a JSON object within the metadata contains a property that is not on Schema.org's list of properties for that type.
 - It is recommended to include such peripheral subdirectories as [materials](./Schema%20Reference/objects/files/materials.md), [documentation](./Schema%20Reference/objects/files/documentation.md), [analysis](./Schema%20Reference/objects/files/analysis.md), and [products](./Schema%20Reference/objects/files/products.md) within the root directory, as these provide important context for the data at hand and make for a more comprehensive dataset.
 - [Namespaces](./Schema%20Reference/meta/defs/namespace.md) other than "https://schema.org" are permitted to be used in metadata files, but a warning will be thrown as the Psych-DS validator has no way of confirming the validity of these external namespaces.

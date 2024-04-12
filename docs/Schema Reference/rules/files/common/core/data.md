@@ -8,6 +8,7 @@ The directory in which to store all datafiles from the dataset.
 
 - [**path**](/Schema Reference/meta/defs/path "Full path of the current file"): /data
 - [**directory**](/Schema Reference/meta/defs/directory "Indicator for whether a given object is expected to be a directory or a file."): True
+- [**requires**](/Schema Reference/meta/defs/requires "Set of schema locations defining the objects that must be present for certain issues to be reported"): dataset_description
 
 **If file/directory not found**:
 

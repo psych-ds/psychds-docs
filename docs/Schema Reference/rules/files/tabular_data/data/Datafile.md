@@ -6,6 +6,7 @@ A CSV file under the /data directory in which the official psych-DS compliant da
 
 ### Properties:
 
+- [**requires**](/Schema Reference/meta/defs/requires "Set of schema locations defining the objects that must be present for certain issues to be reported"): data
 - [**suffix**](/Schema Reference/meta/defs/suffix "String following the final '_' in a filename and preceding the '.' of the extension. Used to identify datafiles primarily."): data
 - [**extensions**](/Schema Reference/meta/defs/extensions "Extension of current file including initial dot"): ['.csv']
 - [**baseDir**](/Schema Reference/meta/defs/baseDir "Name of the directory under which the file object is expected to appear."): data

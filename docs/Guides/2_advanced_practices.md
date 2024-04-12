@@ -78,7 +78,7 @@ In an ideal metadata object, bare strings should be avoided whenever possible, a
 
 In a slightly improved scenario, one might include a link to an informative webpage about the author rather than a string. For instance, many researchers will have an institutional webpage such as "university.edu/faculty/john-doe". This works well for disambiguating the individual and providing context for humans, but since the personal page likely has an idiosyncratic structure with variable information, it is less useful for purposes of machine-readability. Third party identification services like [ORCID ID](link) are useful for guaranteeing unique, universal IDs for individuals (which take the form of web URLs, or URIs) that are widely adopted across research communities. This widespread adoption is a big plus when it comes to metadata, as the more researchers who use an ORCID ID to refer to a given researcher in their metadata, the more this individual's work can be consistently identified and compiled in the process of searching for data.
 
-In the ideal scenario, the value of "author" would be a typed JSON-LD object. In this way, not only can the the individual be uniquely identified with an "@id", but any additional properties/relations can be applied and associated with that individual. Below is an example:
+In the ideal scenario, the value of "author" would be a typed JSON-LD object. In this way, not only can the individual be uniquely identified with an "@id", but any additional properties/relations can be applied and associated with that individual. Below is an example:
 
 ```
 {
