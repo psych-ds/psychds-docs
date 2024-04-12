@@ -47,7 +47,8 @@ Additionally, By using standardized ["semantic vocabularies"](https://rubenverbo
 To facilitate these ideal metadata practices, Psych-DS requires researchers to include a global metadata file named "dataset_description.json", using [JSON-LD formatting](https://json-ld.org/), a common standard for [linked data](https://cambridgesemantics.com/blog/semantic-university/intro-semantic-web/intro-linked-data/). The schema specifies a number of required/recommended fields to include in this file, all of which are derived, as mentioned, from the Schema.org ontology. This gives researchers the freedom to include metadata files ranging from [minimal and satisfactory](https://github.com/psych-ds/example-datasets/blob/main/example_files/dataset_description.json) to [richly informative and structured](https://github.com/psych-ds/example-datasets/blob/main/complex-metadata-dataset/dataset_description.json).
 
 ##### Email Example
-[email example]
+<img width="550" alt="Screenshot 2024-04-10 at 11 16 22 AM" src="https://github.com/psych-ds/psychds-docs/assets/8931559/1063d704-83b0-4830-b7b1-7b3944779794">
+
 ##### Metadata example
 ```
 {
@@ -79,7 +80,7 @@ In addition to providing context for a dataset in the form of rich, conventional
 Without the help of clear folder/file conventions, researchers structure their datasets in an idiosyncratic, ad-hoc manner. One researcher may store all of their data files in one big pile under the root directory. Others may have the common sense to separate their data files and supplementary materials into separate subdirectories, but may name their subdirectory for data files on a whim, choosing something like "data/", "study_data/", "data_dir/", etc. Additionally, the contents of these data directories may contain a mixture of files in various formats, states of pre-/post-processing, etc., making it unclear which files are meant to be the "canonical" contents of the dataset. 
 
 #### Example of how a dataset might be arranged without a standard
-[screenshot2]
+<img width="357" alt="Screenshot 2024-04-12 at 11 30 50 AM" src="https://github.com/psych-ds/psychds-docs/assets/8931559/c2d9236d-270a-4eb8-9e10-5a1666c3d308">
     
 For a human, it's easy to navigate and interpret these idiosyncratic structures to locate the files with which they're concerned, but strong conventions for structuring subdirectories and naming files provide crucial benefits for both humans and machines.
 
@@ -92,7 +93,8 @@ In the behavioral sciences, response data is often structurally simpler but more
 By providing a set of minimal, easily adoptable structural standards, Psych-DS provides benefits that far outweigh their cost in terms of adoption. In short, we expect datasets to contain a subdirectory called "data/", which can contain any number of subdirectories within it. "Canonical" data files for the dataset are all found under this directory, easily identifiable by their use of the CSV file format, the "_data" suffix at the end of the filename, and the use of ["keyword"](./Schema%20Reference/meta/defs/keywords.md) formatting to identify relevant properties of each file. An example of a "canonical" data file might be "data/primary_data/study-1a_participant-145_data.csv".
 
 #### Example of a dataset organized with Psych-DS
-[screenshot3]
+<img width="359" alt="Screenshot 2024-04-12 at 11 34 54 AM" src="https://github.com/psych-ds/psychds-docs/assets/8931559/cff3385f-f04c-4b45-8e2f-30c539d2edd1">
+
 
 ## Validation
 The Psych-DS team is developing a [suite of applications](https://github.com/psych-ds/psychds-validator) across multiple frameworks (browser-based, node.js, Python, R) that researchers can use to quickly confirm that their datasets are compliant with our data standard. These validators function as the "ground truth" for Psych-DS compliance, such that any dataset which the validator approves is considered "valid" for all intents and purposes. 
