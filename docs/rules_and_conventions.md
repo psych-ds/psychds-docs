@@ -46,7 +46,8 @@ The full technical reference for the Psych-DS rules and conventions is the [sche
         - In this example, "study-123a_subject-aaa1_session-3" are the **keywords**, "_data" is the **suffix**, and ".csv" is the **extension**.
         
 ### Example of a Psych-DS compliant dataset
-[screenshot4]
+<img width="343" alt="Screenshot 2024-04-12 at 11 41 54 AM" src="https://github.com/psych-ds/psychds-docs/assets/8931559/b45a09a4-8128-4d3d-b07c-c981c4e72158">
+
 #### Contents of dataset_description.json
 ```
 {
