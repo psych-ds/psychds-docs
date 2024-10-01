@@ -6,7 +6,7 @@ You can start today without installing any software or publicly sharing your dat
 
 ## To use Psych-DS, format your data - we'll show you how
 
-Psych-DS is a data standard: a system of very specific rules for how data (in this case, tables of rows and columns) should be organized on a computer. 
+Psych-DS is a data standard: a system of very specific rules for how data (in this case, tables of rows and columns) should be organized as files and folders on a computer. 
 
 To use it, you will make some (hopefully small) changes to how you format, name, and organize the data from a specific project. Then, you will use the [Psych-DS Validator Tool](https://psych-ds.github.io/validator/) to check your work. 
 
@@ -24,15 +24,15 @@ What makes Psych-DS different from these resources is that rather than the *why*
 
 The guide below serve two purposes - it summarizes the most important rules that Psych-DS enforces, and it provides a step-by-step way to build the Psych-DS version of your dataset. 
 
-Read over the whole guide before you start - depending on your current practices and the stage your project is in, it may make sense to start with any one of the four steps.
+Read over the whole guide before you start - depending on your current practices and the stage your project is in, it may make sense to start with any one of the steps.
 
-Then, try out the validator. If you run into any trouble, feel free to ask questions on the [Psych-DS listserv](https://docs.google.com/forms/d/e/1FAIpQLSeOZXtGgGcJ7pFcWKEsTlAKUZQdVg1QCWOuJUVtmEzIkUbkjw/viewform) - we're here to help!
+Then, try out the validator. If you run into any trouble, feel free to ask questions on the [Psych-DS listserv](https://docs.google.com/forms/d/e/1FAIpQLSeOZXtGgGcJ7pFcWKEsTlAKUZQdVg1QCWOuJUVtmEzIkUbkjw/viewform), or drop Melissa (Psych-DS maintainer) an email at mekline@mit.edu - we're here to help!
 
 ## Before you start
 
 Here is what you need to complete the steps below:
 
-1. A copy of a dataset that you can edit. A dataset might consist of several files or just one. If your files contain tabular (row-and-column) data, you can probably format the2   m to the Psych-DS standard.
+1. A copy of a dataset that you can edit. A dataset might consist of several files or just one. If your files contain tabular (row-and-column) data, you can probably format them to the Psych-DS standard.
 
 2. A text editor. Your computer likely already has one installed (TextEdit on a Mac and Notepad on Windows). Avoid using more complex word processing software like Word or Google Docs.
 
@@ -64,7 +64,9 @@ Sample-PsychDS-Project/
         raw/
 ```
 
-Or, if you are modifying an existing directory, it might look like this:
+(In these examples, indentation represents the folder structure - above, we have an empty folder called `raw/`, inside a folder called `data/`, inside a folder called `Sample-PsychDS-Project/`)
+
+If you are modifying an existing directory to meet the Psych-DS data standard, it might look like this:
 
 ```
 Zebra-Questionnaire-Project/
@@ -81,6 +83,8 @@ Zebra-Questionnaire-Project/
         article_final.docx
         article_final_2.docx 
 ```
+
+We'll use this sample directory as the example moving forward.  To start off, it contains a stand-alone analysis file, a writing folder with several drafts, and a data folder with several different kinds of data - an Excel workbook, a CSV table, and three photos of the original paper questionnaires.   
 
 ## Format your data files, and move them if necessary
 
@@ -106,7 +110,7 @@ col1,col2,col3
 2,short,c 
 ```
 
-However, if you open the CSV file in a spreadsheet program, it will display it in formatted rows and columns, something like this:
+However, if you open the CSV file in a spreadsheet program like Excel, it will display it in formatted rows and columns, something like this:
 
 ```
 ------------------------------------
@@ -121,9 +125,11 @@ However, if you open the CSV file in a spreadsheet program, it will display it i
 
 ```
 
-For many people, the hardest part of this process will be dealing with complicated spreadsheet "workbooks", where you may have several tabs' worth of tables, custom color annotations, and even graphs and other analyses. If this is the case, you will need to make a version of your data that splits this up into multiple CSV files. We recommend storing your original spreadsheet workbook in an `analysis/` folder rather than your `data/` folder.
+For many people, the hardest part of this process will be dealing with complicated spreadsheet "workbooks", where you may have several tabs' worth of tables, custom color annotations, and even graphs and other analyses. If this is the case, you will need to make a version of your data that splits this up into multiple CSV files. We recommend storing your original spreadsheet workbook in an `analysis/` folder rather than your `data/` folder, so you don't lose any of your work.
 
-Your `data/` folder should contain *only* the data itself. Here is how a project directory might look after splitting out your data. We have moved an Excel notebook to the `analysis/` folder, and put copies of the tables it contained in the `data/` folder, as CSV files. Everything in the `data/` folder is a CSV, except for the original photographs of the data sheets, stored in `data/raw/`.
+As you work on splitting a spreadsheet workbook into CSV files, keep in mind that CSV files *cannot* encode color, bolding, graphs, or any other content that isn't text.  In most cases, if you are using color etc. to annotate your data, you can represent the same information with a new column in the table. The article by Karl Broman above goes over this process in much more detail! 
+
+Remember, the goal is for your `data/` folder to contain *only* the data itself. Here is how a project directory might look after splitting out your data. We have moved the Excel notebook to the `analysis/` folder, and put copies of the tables it contained in the `data/` folder, as CSV files. Everything in the `data/` folder is a CSV, except for the original photographs of the data sheets, stored in `data/raw/`.
 
 ```
 Zebra-Questionnaire-Project/
@@ -144,33 +150,49 @@ Zebra-Questionnaire-Project/
 
 ## Name your data files
 
-Once your data files are formatted as CSVs, you will rename them to follow the Psych-DS pattern, which uses the concept of 'key-value' pairs. Psych-DS expects your data filenames to look like this:
-
-`[key-value_]+_data.csv`
-
-The `+` means that you can repeat as many pairs (i.e. labels, groupings, types of ID) as you need. You put a dash (`-`) between each key and value, and an underscore (`_`) between each pair. We always use `_data.csv` as the suffix to distinguish these files from any other CSV files that might exist elsewhere in your project directory. 
-
-To decide what your key-value pairs should be, think of what makes each of your data files different from the others. If each file corresponds to a different subject/participant, you might use pairs like `subj-001`, `subj-002` and so on. If all of your data is in just one file, a label like `study-ZebraQuestionnaire` might be enough.
-
-All together, this means that you will be renaming your data files to look like this: 
-
-`subj-001_data.csv`
-
-`subj-002_data.csv`
-
-`subj-003_data.csv`
-
-`subj-004_data.csv`
-
-Or this:
+Once your data files are formatted as CSVs, you will rename them to follow the Psych-DS labeling pattern. We'll start with some examples. If you have just one CSV, it might be reasonable to just label it using a nickname for the study, like this: 
 
 `study-ZebraQuestionnaire_data.csv`
 
-Or this:
+If each CSV represents a year of data collection, you could label a set of files like this:
 
-`study-BestExpEver_site-NYC_session-1_condition-A_description-allSubs_data.csv`
+`year-2022_data.csv`
 
-Your data files don't all need to follow the same key-value structure. Use whatever patterns you need to be able to keep track of all the different parts, versions, or subsets of data that are included in your data files.
+`year-2023_data.csv`
+
+`year-2024_data.csv`
+
+If each participant generates up to four sessions of data, you might need to include two pieces of information in each filename: 
+
+`participant-001_session-1_data.csv`
+
+`participant-001_session-2_data.csv`
+
+`participant-001_session-3_data.csv`
+
+`participant-001_session-4_data.csv`
+
+`participant-002_session-1_data.csv`
+
+`participant-002_session-2_data.csv`
+
+These examples show the 'key-value' pattern for filenames in Psych-DS.  You choose as many categories (keys) as you need - study, year, participant, and session in the examples above - and give the appropriate value for each individual file. It's up to you how descriptive you want to make your filenames, and your data files don't all need to follow the same key-value structure. For instance, maybe you also have a summary file that merges all the participant data together: 
+
+`participant-summary_data.csv`
+
+Use whatever patterns you need to be able to keep track of all the different parts, versions, or subsets of data that are included in your data files. The actual regular expression for allowed filenames in Psych-DS is: 
+
+`[key-value_]+_data.csv`
+
+The `+` means that you can repeat as many key-value pairs as you need. You put a dash (`-`) between each key and its value, and an underscore (`_`) between each pair. We always use `_data.csv` as the suffix to distinguish these files from any other CSV files that might exist elsewhere in your project directory. 
+
+As an exercise, see if you can notice what's wrong with each of the following filenames: 
+
+`participant-summary.csv`
+
+`year2024_data.csv`
+
+`participant_001_data.csv`
 
 Here is our sample directory again, with the CSV files renamed to match Psych-DS requirements: 
 
@@ -195,7 +217,7 @@ Zebra-Questionnaire-Project/
 
 A main goal of Psych-DS is for you to be able to check your work, so you can always tell if you are following the same consistent approach as anyone else who adopts this standard.
 
-In order to do this, we'll need to add one more file to your directory. This file lets the Psych-DS validator know that this *is* a Psych-DS dataset, and describes what should be inside it. This file is also non-negotiable - every Psych-DS dataset must have a `dataset_description.json` file. 
+In order to do this, we'll need to add one more file to your directory. This file lets the Psych-DS validator know that this *is* a Psych-DS dataset, and describes what should be inside it. This file is also non-negotiable - every Psych-DS dataset must have a `dataset_description.json` file, with exactly that name. 
 
 If you want, you can start with a "dummy" file. Download the file [here](https://osf.io/esy2t) (click the three dots on the right to find the download button), then drag it into your project folder. 
 
@@ -222,7 +244,10 @@ This is a JSON file, which contains specially formatted text with information ab
      "@context" : "http://schema.org/",
      "@type" : "Dataset",
      "name" : "Psych-DS 'Minimal Metadata' Example",
-     "description" : "This is a basic dataset_description.json file that can be used for testing the Psych-DS validator. It will need to be updated for your specific dataset. The variableMeasured list will need to contain an exact list of every column name that appears across all of your CSV files. This version was created 2024-09-19.",
+     "description" : "This is a basic dataset_description.json file that can be used for
+testing the Psych-DS validator. It will need to be updated for your specific dataset.
+The variableMeasured list will need to contain an exact list of every column name that
+appears across all of your CSV files. This version was created 2024-09-19.",
      "variableMeasured" : ["participant_id", "session_id", "col1", "col2", "col3"]
 }
 ```
@@ -233,15 +258,13 @@ At a minimum, the metadata file needs to contain three pieces of information:
 
 * `"name"` - A name for the dataset. 
 * `"description"` - A description of the dataset, which can be as long or as short as you like. 
-* `"variableMeasured"` - A list of all the variable names that appear across all the CSV files in your dataset.
+* `"variableMeasured"` - A list of all the variable names that appear anywhere in the CSV file headers in your dataset.
 
 You can open the file in your text editor and update the text yourself. Make sure to keep the quotation marks and brackets matched, otherwise the validator won't be able to read it correctly. 
 
 Alternately, if you would prefer to fill out a form rather than editing this file yourself, you can use the [CEDAR Metadata Wizard](https://psych-ds.github.io/cedar-wizard-psychds/). This form will generate a block of JSON which you can copy and paste into the `dataset_description.json` file in place of the current contents.
 
-Either way, the `variableMeasured` field must contain *all* of the column names used across all of your data files. So, if your dataset has two data files, and in the first, the column headers are "variable1", "variable2", "variable3", and in the second, they are "variable1" and "variable4", then the value for your "variableMeasured" field should be `["variable1","variable2","variable3","variable4"]`. 
-
-(As a side note, Psych-DS also supports expanding this part of the metadata file to create a complete, machine-readable data dictionary, but we will not be covering this feature here.)
+Either way, the `variableMeasured` field must contain *all* of the column names that appear in any of your data files. So, if your dataset has two data files, and in the first, the column headers are "variable1", "variable2", "variable3", and in the second, they are "variable1" and "variable4", then the value for your "variableMeasured" field should be `["variable1","variable2","variable3","variable4"]`. 
 
 ## Check your work
 
@@ -259,8 +282,8 @@ If you are interested in writing software that uses Psych-DS, or in learning mor
 
 Some topics not covered in this guide include: 
 
-- Using Psych-DS to generate a complete machine-readable data dictionary
+- Using Psych-DS to generate a machine-readable data dictionary
 - More complex specification rules, such as sidecar metadata and the `.psychds-ignore` file
 - Using the validator in the CLI (currently), or inside R or Python (upcoming)
 
-We are currently testing the validator to see how well it works for people, and collecting example datasets to publicize.  Come give us feedback by either filing a [github issue](https://github.com/psych-ds/psychds-validator-web/issues/new) or joining the [Psych-DS listserv](https://docs.google.com/forms/d/e/1FAIpQLSeOZXtGgGcJ7pFcWKEsTlAKUZQdVg1QCWOuJUVtmEzIkUbkjw/viewform)!
+We are in the process of testing the validator to see how well it works for people, and collecting example datasets to publicize.  Come give us feedback by either filing a [github issue](https://github.com/psych-ds/psychds-validator-web/issues/new) or joining the [Psych-DS listserv](https://docs.google.com/forms/d/e/1FAIpQLSeOZXtGgGcJ7pFcWKEsTlAKUZQdVg1QCWOuJUVtmEzIkUbkjw/viewform)!
