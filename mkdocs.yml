@@ -1,1 +1,76 @@
-site_name: My Docs
+site_name: Psych-DS Docs
+repo_url: https://github.com/psych-ds/psychds-docs
+site_url: https://psychds-docs.readthedocs.io/en/latest/
+
+plugins:
+  - search
+  - tags
+  - blog
+  - open-in-new-tab
+  - awesome-pages:
+      collapse_single_pages: true
+      strict: false
+      filename: .pages.yml
+
+docs_dir: docs
+
+theme:
+  name: material
+  features:
+    - announce.dismiss
+    - content.action.edit
+    - content.code.copy
+    - content.tooltips
+    - navigation.instant
+    - navigation.sections
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.indexes
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - toc.follow
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/pencil
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      primary: deep purple
+      accent: purple
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)" 
+      primary: deep purple
+      accent: purple
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - tables
+  - toc:
+      permalink: true
+      toc_depth: 3
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/psych-ds
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/psychds
+  generator: false
+
+copyright: Copyright &copy; Psych-DS Contributors

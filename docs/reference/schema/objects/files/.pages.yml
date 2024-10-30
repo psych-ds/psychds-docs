@@ -1,0 +1,15 @@
+title: Files
+arrange:
+  - dataset_description.md
+  - DataFile.md
+  - DirectoryMetadata.md
+  - SidecarMetadata.md
+  - analysis.md
+  - data.md
+  - documentation.md
+  - materials.md
+  - products.md
+  - psychdsignore.md
+  - README.md
+  - results.md
+  - SidecarMetadata.md
