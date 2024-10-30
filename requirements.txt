@@ -1,0 +1,4 @@
+mkdocs-awesome-pages-plugin
+mkdocs-open-in-new-tab
+mkdocs-blog-plugin
+mkdocs-material
