@@ -1,0 +1,6 @@
+title: Rules
+arrange:
+  - compiled_metadata
+  - csv_data
+  - errors
+  - files

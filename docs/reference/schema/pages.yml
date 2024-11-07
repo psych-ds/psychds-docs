@@ -1,0 +1,6 @@
+title: Schema
+arrange:
+  - schema_overview.md
+  - meta
+  - objects
+  - rules
