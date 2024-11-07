@@ -8,34 +8,44 @@ The source code for all versions of the Psych-DS Validator derives from our [Den
 
 The easiest way to install the app is via [npm](https://www.npmjs.com/). Simply install the package globally with the following command:
 
-```
-npm install -g psychds-validator
-```
+!!! tip "NPM Installation"
+    ```bash
+    npm install -g psychds-validator
+    ```
 
 This will allow you to use the validate command:
 
-```
-validate <path_to_dataset>
-```
+!!! tip "NPM Usage"
+    ```bash
+    validate <path_to_dataset>
+    ```
 
 ### Optional parameters
 
 The following parameters and flags can be appended to the validate command to modify the validator's behavior:
 
-- `-w` or `--showWarnings`: causes the validator to output warnings and suggestions for best practices in addition to any errors.
-- `--useEvents`: switches the validator to display the output as a sequential progress checklist instead of a collection of issues. Only reports the first error it encounters in the sequence
-- `--json`: causes the validator to return the validation results as a JSON rather than printing them to the log.
-- `-s` or `--schema`: switches the validator to use a different version of the Psych-DS schema. Default is "latest".
+!!! abstract "Parameters"
+    - `-w` or `--showWarnings`: causes the validator to output warnings and suggestions for best practices in addition to any errors.
+    - `--useEvents`: switches the validator to display the output as a sequential progress checklist instead of a collection of issues. Only reports the first error it encounters in the sequence
+    - `--json`: causes the validator to return the validation results as a JSON rather than printing them to the log.
+    - `-s` or `--schema`: switches the validator to use a different version of the Psych-DS schema. Default is "latest".
 
 ### Using the validate function within a node app
 
 To use the validate function within server-side javascript, the installation is the same as above. Then, within your app, you can import and use "validate" as so:
 
-For CJS contexts:
-`const { validate } = require("psychds-validator");`
+!!! tip "For CJS Contexts"
+    ```javascript
+    const { validate } = require("psychds-validator");
+    ```
 
-For ESM contexts:
-`import { validate } from "psychds-validator";`
+!!! tip "For ESM Contexts"
+    ```javascript
+    import { validate } from "psychds-validator";
+    ```
 
 Then the validate function can be used with any of the optional flags:
-`const result = await validate("<path_to_example_dataset>",{'exampleOption':true});`
+!!! tip "Node Usage"
+    ```javascript
+    const result = await validate("<path_to_example_dataset>",{'exampleOption':true});
+    ```

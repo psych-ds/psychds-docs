@@ -1,4 +1,4 @@
-# [materials](/en/latest/Schema Reference/objects/files/materials "A directory in which to store any materials used to conduct the study.")
+# [materials](/en/latest/reference/schema/objects/files/materials "A directory in which to store any materials used to conduct the study.")
 
 ### Definition:
 
@@ -6,13 +6,13 @@ A directory in which to store any materials used to conduct the study.
 
 ### Properties:
 
-- [**path**](/en/latest/Schema Reference/meta/defs/path "Full path of the current file"): /materials
-- [**directory**](/en/latest/Schema Reference/meta/defs/directory "Indicator for whether a given object is expected to be a directory or a file."): True
+- [**path**](/en/latest/reference/schema/meta/defs/path "Full path of the current file"): /materials
+- [**directory**](/en/latest/reference/schema/meta/defs/directory "Indicator for whether a given object is expected to be a directory or a file."): True
 
 **If file/directory not found**:
 
-[**code**](/en/latest/Schema Reference/meta/defs/code): MISSING_MATERIALS_DIRECTORY
+[**code**](/en/latest/reference/schema/meta/defs/code): MISSING_MATERIALS_DIRECTORY
 
-[**level**](/en/latest/Schema Reference/meta/defs/level): warning
+[**level**](/en/latest/reference/schema/meta/defs/level): warning
 
-[**reason**](/en/latest/Schema Reference/meta/defs/reason): It is recommended to include subdirectory named 'materials' in the base directory
+[**reason**](/en/latest/reference/schema/meta/defs/reason): It is recommended to include subdirectory named 'materials' in the base directory

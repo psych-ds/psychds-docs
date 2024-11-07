@@ -6,40 +6,40 @@ Psych-DS is a community data standard for research in psychology and other behav
 
 Psych-DS provides a simple and easy-to-adopt standard for organizing data in the psychological and behavioral sciences, which aims to help researchers satisfy [FAIR principles](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4792175/) for data sharing.
 
-### Key Goals
+!!! abstract "Key Goals"
 
-1. To promote the adoption of good, consistent practices in the management of behavorial data
-2. To create a machine-readable format for these datasets that can support tools for their analysis, discovery, and preparation
+    1. To promote the adoption of good, consistent practices in the management of behavorial data
+    2. To create a machine-readable format for these datasets that can support tools for their analysis, discovery, and preparation
 
 ## Why do I need Psych-DS?
 
-In the social and behavioral sciences:
+!!! info "In the social and behavioral sciences:"
 
-- Datasets can be arranged in many different ways and file formats
-- No consensus exists about how to organize and share project data
-- Even researchers within the same lab may arrange data differently
-- Lack of standardization leads to:
-    - Miscommunications
-    - Time wasted on reformatting/rearranging data
-    - Difficulties indexing datasets for search tools
-    - Challenges in writing reusable analysis scripts
+    - Datasets can be arranged in many different ways and file formats
+    - No consensus exists about how to organize and share project data
+    - Even researchers within the same lab may arrange data differently
+    - Lack of standardization leads to:
+        - Miscommunications
+        - Time wasted on reformatting/rearranging data
+        - Difficulties indexing datasets for search tools
+        - Challenges in writing reusable analysis scripts
 
 ## Getting Started with Psych-DS
 
-### Documentation Resources
+!!! important "Documentation Resources"
 
-- [Getting Started Guide](./guides/1_getting_started.md/): Step-by-step guidance for creating your first Psych-DS dataset
-- [Rules and Conventions](./reference/rules_and_conventions.md): Basic requirements for Psych-DS compliance
-- [Advanced Practices](./guides/2_advanced_practices.md): Guidance on more advanced topics relating to metadata and file structure
-- [Schema Reference](./reference/schema/schema_overview.md): Documentation built from technical schema reference, includes all rules/objects/definitions.
-- [Technical Reference](https://github.com/psych-ds/psych-DS/tree/master/schema_model): Official schema model using [linkML](https://linkml.io/)
+    - [Getting Started Guide](./guides/1_getting_started.md/): Step-by-step guidance for creating your first Psych-DS dataset
+    - [Rules and Conventions](./reference/rules_and_conventions.md): Basic requirements for Psych-DS compliance
+    - [Advanced Practices](./guides/2_advanced_practices.md): Guidance on more advanced topics relating to metadata and file structure
+    - [Schema Reference](./reference/schema/schema_overview.md): Documentation built from technical schema reference, includes all rules/objects/definitions.
+    - [Technical Reference](https://github.com/psych-ds/psych-DS/tree/master/schema_model): Official schema model using [linkML](https://linkml.io/)
 
 
 ### Core Components
 
 To be compliant with Psych-DS, focus on two key aspects:
 
-??? abstract "1. Metadata"
+??? details "1. Metadata"
 
     ### Understanding Metadata
 
@@ -77,32 +77,32 @@ To be compliant with Psych-DS, focus on two key aspects:
     - Supports both minimal and comprehensive documentation
 
     !!! example "Structured Metadata Example"
-    ```json
-    {
-        "@context": "https://schema.org",
-        "@type": "Dataset",
-        "name": "X Experiment",
-        "author": {
-            "@type": "Person",
-            "name": "Test Researcher",
-            "@id": "https://orcid.org/0022-0002-3833-3472"
-        },
-        "description": "A self-paced reading study with N participants...",
-        "funding": {
-            "@type": "Grant",
-            "@id": "https://dx.doi.org/10.1080/02626667.2018.1560449",
-            "name": "Y Grant"
-        },
-        "locationCreated": {
-            "@type": "Place",
-            "name": "Z facility",
-            "address": "123 Main St..."
+        ```
+        {
+            "@context": "https://schema.org",
+            "@type": "Dataset",
+            "name": "X Experiment",
+            "author": {
+                "@type": "Person",
+                "name": "Test Researcher",
+                "@id": "https://orcid.org/0022-0002-3833-3472"
+            },
+            "description": "A self-paced reading study with N participants...",
+            "funding": {
+                "@type": "Grant",
+                "@id": "https://dx.doi.org/10.1080/02626667.2018.1560449",
+                "name": "Y Grant"
+            },
+            "locationCreated": {
+                "@type": "Place",
+                "name": "Z facility",
+                "address": "123 Main St..."
+            }
         }
-    }
-    ```
+        ```
 
 
-??? abstract "2. File Organization"
+??? details "2. File Organization"
 
     ### The Challenge of Unstructured Data
 
@@ -129,27 +129,28 @@ To be compliant with Psych-DS, focus on two key aspects:
 
 ## Validation Tools
 
-The Psych-DS team provides validation tools across multiple platforms:
+!!! tip "The Psych-DS team provides validation tools across multiple platforms:"
 
-- [Browser-based](https://psych-ds.github.io/validator/) (best option for most researchers)
-- [npm package](https://www.npmjs.com/package/psychds-validator) (best option for developers)
-- Python library (coming soon)
-- R package (coming soon)
+    - [Browser-based](https://psych-ds.github.io/validator/) (best option for most researchers)
+    - [npm package](https://www.npmjs.com/package/psychds-validator) (best option for developers)
+    - Python library (coming soon)
+    - R package (coming soon)
 
-### Features
+!!! info "Features"
 
-- Binary VALID/INVALID output
-- Detailed error reporting
-- Optional warning flags
-- Client-side processing for privacy
+    - Binary VALID/INVALID output
+    - Detailed error reporting
+    - Optional warning flags
+    - Client-side processing for privacy
 
 !!! note "Privacy Commitment"
     **All validation is performed locally.** No data is uploaded or stored during validation. The browser-based tool uses client-side JavaScript exclusively, with no server interaction or database storage.
 
-### Repositories
+### Our Repositories
+!!! abstract "Repositories"
 
-- [Psych-DS Core Repository](https://github.com/psych-ds/psych-DS)
-- [Validator Repository](https://github.com/psych-ds/psychds-validator)
-- [Browser-based Validator Repository](https://github.com/psych-ds/psychds-validator-web)
-- [Documentation Repository](https://github.com/psych-ds/psychds-docs)
-- [Example Datasets--feel free to contribute!](https://github.com/psych-ds/example-datasets)
+    - [Psych-DS Core Repository](https://github.com/psych-ds/psych-DS)
+    - [Validator Repository](https://github.com/psych-ds/psychds-validator)
+    - [Browser-based Validator Repository](https://github.com/psych-ds/psychds-validator-web)
+    - [Documentation Repository](https://github.com/psych-ds/psychds-docs)
+    - [Example Datasets--feel free to contribute!](https://github.com/psych-ds/example-datasets)

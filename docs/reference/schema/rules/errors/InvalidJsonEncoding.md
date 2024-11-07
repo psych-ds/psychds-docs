@@ -1,7 +1,7 @@
 # InvalidJsonEncoding
 
-[**code**](/en/latest/Schema Reference/meta/defs/code): INVALID_JSON_ENCODING
+[**code**](/en/latest/reference/schema/meta/defs/code): INVALID_JSON_ENCODING
 
-[**level**](/en/latest/Schema Reference/meta/defs/level): error
+[**level**](/en/latest/reference/schema/meta/defs/level): error
 
-[**reason**](/en/latest/Schema Reference/meta/defs/reason): JSON files must be valid utf-8.
+[**reason**](/en/latest/reference/schema/meta/defs/reason): JSON files must be valid utf-8.

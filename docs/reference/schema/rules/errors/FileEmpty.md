@@ -1,7 +1,7 @@
 # FileEmpty
 
-[**code**](/en/latest/Schema Reference/meta/defs/code): FILE_EMPTY
+[**code**](/en/latest/reference/schema/meta/defs/code): FILE_EMPTY
 
-[**level**](/en/latest/Schema Reference/meta/defs/level): warning
+[**level**](/en/latest/reference/schema/meta/defs/level): warning
 
-[**reason**](/en/latest/Schema Reference/meta/defs/reason): Empty files are not allowed. This typically occurs due to a problem creating or downloading a file.
+[**reason**](/en/latest/reference/schema/meta/defs/reason): Empty files are not allowed. This typically occurs due to a problem creating or downloading a file.

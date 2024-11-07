@@ -1,7 +1,7 @@
 # EmptyFile
 
-[**code**](/en/latest/Schema Reference/meta/defs/code): EMPTY_FILE
+[**code**](/en/latest/reference/schema/meta/defs/code): EMPTY_FILE
 
-[**level**](/en/latest/Schema Reference/meta/defs/level): error
+[**level**](/en/latest/reference/schema/meta/defs/level): error
 
-[**reason**](/en/latest/Schema Reference/meta/defs/reason): empty files not allowed.
+[**reason**](/en/latest/reference/schema/meta/defs/reason): empty files not allowed.
