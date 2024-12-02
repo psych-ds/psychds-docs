@@ -1,9 +1,0 @@
-title: Common Principles
-arrange:
-  - columns.md
-  - dataset.md
-  - extension.md
-  - inheritance.md
-  - keywords.md
-  - primary_data.md
-  - raw_data.md
