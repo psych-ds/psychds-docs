@@ -1,4 +1,4 @@
-# [psychdsignore](/en/latest/reference/schema/objects/files/psychdsignore "List of files and gitignore expressions describing which files in the directory should be ignored by the Psych-DS validator.")
+# [psychdsignore](/en/latest/reference/schema/objects/files/psychdsignore)
 
 ### Definition:
 
@@ -6,12 +6,14 @@ List of files and gitignore expressions describing which files in the directory 
 
 ### Properties:
 
-- [**path**](/en/latest/reference/schema/meta/defs/path "Full path of the current file"): /.psychdsignore
+| Property | Value | Description |
+|----------|--------|-------------|
+| [**path**](/en/latest/reference/schema/meta/defs/path) | `/.psychdsignore` | Full path of the current file
 
-**If file/directory not found**:
+### If object not found:
 
-[**code**](/en/latest/reference/schema/meta/defs/code): MISSING_PSYCHDSIGNORE
-
-[**level**](/en/latest/reference/schema/meta/defs/level): warning
-
-[**reason**](/en/latest/reference/schema/meta/defs/reason): It is recommended to include a file called '.psychdsignore' in the base directory to indicate files/directories that the validator process should ignore.
+| Property | Value |
+|----------|--------|
+| [**code**](/en/latest/reference/schema/meta/defs/code) | MISSING_PSYCHDSIGNORE |
+| [**level**](/en/latest/reference/schema/meta/defs/level) | warning |
+| [**reason**](/en/latest/reference/schema/meta/defs/reason) | It is recommended to include a file called '.psychdsignore' in the base directory to indicate files/directories that the validator process should ignore. |

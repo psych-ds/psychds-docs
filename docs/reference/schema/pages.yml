@@ -1,6 +1,7 @@
 title: Schema
 arrange:
   - schema_overview.md
+  - errors.md
   - meta
   - objects
   - rules
