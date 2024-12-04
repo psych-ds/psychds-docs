@@ -6,7 +6,7 @@ This page lists out all of the most common errors that you might encounter while
 
 ---
 
-#### [MISSING_DATASET_DESCRIPTION](../schema/rules/files/common/core/dataset_description)
+#### [MISSING_DATASET_DESCRIPTION](../../schema/rules/files/common/core/dataset_description)
 
 This error indicates that your dataset is missing a file named `dataset_description.json` in the root folder. 
 
@@ -15,7 +15,7 @@ This error indicates that your dataset is missing a file named `dataset_descript
 
 ---
 
-#### [MISSING_DATA_DIRECTORY](../schema/rules/files/common/core/data)
+#### [MISSING_DATA_DIRECTORY](../../schema/rules/files/common/core/data)
 
 This error indicates that your dataset is missing a subfolder called `data` inside of the root folder (at the same level as the dataset_description.json metadata file). 
     
@@ -24,7 +24,7 @@ This error indicates that your dataset is missing a subfolder called `data` insi
 
 ---
 
-#### [MISSING_DATAFILE](../schema/rules/files/tabular_data/data/Datafile)
+#### [MISSING_DATAFILE](../../schema/rules/files/tabular_data/data/Datafile)
     
 This error indicates that your `data` directory does not contain at least one valid datafile. In the Psych-DS schema, a "valid" datafile is one that follows [CSV file formatting](https://flatfile.com/blog/what-is-a-csv-file-guide-to-uses-and-benefits/) and uses the "_data" suffix and [keyword-based file naming](../schema/meta/defs/keywords/).
 
@@ -51,7 +51,7 @@ This error indicates that your `data` directory does not contain at least one va
 
 ## Metadata errors
 
-#### [INVALID_JSON_FORMATTING](../schema/rules/errors/InvalidJsonFormatting)
+#### [INVALID_JSON_FORMATTING](../../schema/rules/errors/InvalidJsonFormatting)
 
 This error indicates that one of your metadata files (e.g. `dataset_description.json`) is not properly formatted as a [JSON file](https://stackoverflow.blog/2022/06/02/a-beginners-guide-to-json-the-data-format-for-the-internet/)
 
@@ -60,7 +60,7 @@ This error indicates that one of your metadata files (e.g. `dataset_description.
 
 ---
 
-#### [INVALID_JSONLD_FORMATTING](../schema/rules/errors/InvalidJsonldFormatting)
+#### [INVALID_JSONLD_FORMATTING](../../schema/rules/errors/InvalidJsonldFormatting)
 
 This error indicates that one of your metadata files (e.g. `dataset_description.json`) does not properly conform to [JSON-LD grammar](https://www.w3.org/TR/json-ld11/). JSON-LD is a linked data format (like RDF) which is useful for indexing documents and improving search/catalog functions.
 
@@ -69,7 +69,7 @@ This error indicates that one of your metadata files (e.g. `dataset_description.
 
 ---
 
-#### [JSON_KEY_REQUIRED](../schema/rules/errors/JsonKeyRequired)
+#### [JSON_KEY_REQUIRED](../../schema/rules/errors/JsonKeyRequired)
 
 This error indicates that the validator does not see all of the required fields in your metadata file. These fields are `name`, `description`, and `variableMeasured`. 
 
@@ -78,7 +78,7 @@ This error indicates that the validator does not see all of the required fields 
 
 ---
 
-#### [CSV_COLUMN_MISSING_FROM_METADATA](../schema/rules/errors/CsvColumnMissingFromMetadata)
+#### [CSV_COLUMN_MISSING_FROM_METADATA](../../schema/rules/errors/CsvColumnMissingFromMetadata)
 
 This error indicates that the validator found a [column header](https://help.autodesk.com/view/RVT/2024/ENU/?guid=GUID-DD4D26EB-0827-4EDB-8B1F-E591B9EA8CA0#:~:text=The%20first%20row%20of%20values%20in%20the%20CSV%20file%20is%20for%20header%20information%2C%20to%20describe%20the%20contents%20of%20subsequent%20columns.) in one of your CSV data files that was not listed within the `variableMeasured` field of your metadata. It is required that the `variableMeasured` field contains either strings or `PropertyValue` objects representing each of the column headers that appear across all data files in your dataset.
 
@@ -96,7 +96,7 @@ This error indicates that the validator found a [column header](https://help.aut
 
 ---
 
-#### [INCORRECT_DATASET_TYPE](../schema/rules/errors/IncorrectDatasetType) / [MISSING_DATASET_TYPE](../schema/rules/errors/MissingDatasetType)
+#### [INCORRECT_DATASET_TYPE](../../schema/rules/errors/IncorrectDatasetType) / [MISSING_DATASET_TYPE](../../schema/rules/errors/MissingDatasetType)
 
 These errors occur when your metadata is either missing the `@type` field, or if the field has the wrong value. In the Psych-DS schema, all metadata objects must have `Dataset` as the value of their `@type` field.
 
@@ -107,16 +107,34 @@ These errors occur when your metadata is either missing the `@type` field, or if
 
 ## Data file errors
 
-#### [FILENAME_KEYWORD_FORMATTING_ERROR](FilenameKeywordFormattingError)
+#### [FILENAME_KEYWORD_FORMATTING_ERROR](../../schema/rules/errors/FilenameKeywordFormattingError)
 
 This error occurs when one of your files ends with `_data.csv` but does not follow proper keyword formatting. In Psych-DS, keywords are composed of key-value pairs that are separated by a hypen (`-`), and each pair is separated by an underscore (`_`). The keys in each keyword pair must only contain alphabetic characters (`A-Z and a-z`), and the values can contain alphanumeric characters (`A-Z, a-z, and 0-9`). Neither keys nor values can contain special characters (e.g. punctuation such as `-, _, !, ?, ., etc`).
+
+For reference, here are some valid datafile names:
+
+```
+    subject-XYZ_session-2_data.csv
+    study-ExampleStudy_data.csv
+    study-ExampleStudy_condition-2_data.csv
+
+```
+
+and here are some invalid names:
+
+```
+    data.csv
+    subject-XYZ_data2.csv
+    condition1-A_condition2-C_data.csv
+    subject-XYZ.csv
+```
 
 !!! tip "Troubleshooting"
     One easy way to check the validity of your filenames is to use this [regular expression (regex) validator](https://regex101.com/). A regular expression is a special way of describing patterns of characters. The regular expression for Psych-DS datafiles is `([a-z]+-[a-zA-Z0-9]+)(_[a-z]+-[a-zA-Z0-9]+)*_data\.csv`, so if you input this to the regex validator, and then put your filename as a test string, the validator will tell you whether it follows the regex pattern.
 
 ---
 
-#### [CSV_FORMATTING_ERROR](../schema/rules/errors/CSVFormattingError)
+#### [CSV_FORMATTING_ERROR](../../schema/rules/errors/CSVFormattingError)
 
 This error occurs when one of your data files is not able to be parsed as CSV. In general, CSV is very flexible as a file format, and there are few things that will throw this error. The most relevant cause would be including a double quote (`"`) without a corresponding double quote to close it. The rest of the rules for CSV data files are specific to the Psych-DS schema, and are as follows:
 
@@ -137,7 +155,7 @@ This error occurs when one of your data files is not able to be parsed as CSV. I
 
 ---
 
-#### [ROWID_VALUES_NOT_UNIQUE](../schema/rules/errors/RowidValuesNotUnique)
+#### [ROWID_VALUES_NOT_UNIQUE](../../schema/rules/errors/RowidValuesNotUnique)
 
 This error occurs if you choose to include a column called `row_id` in one of your datafiles, but the validator finds that all the cells of this column are not unique. `row_id` is a privileged column header in the Psych-DS schema that is intended to uniquely identify a given row of response data.
 
