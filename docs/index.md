@@ -15,7 +15,7 @@ Psych-DS provides a simple and easy-to-adopt standard for organizing data in the
 
 !!! info "In the social and behavioral sciences:"
 
-    - Datasets can be arranged in many different ways and file formats
+    - Datasets can be arranged in many different ways and use various file formats
     - No consensus exists about how to organize and share project data
     - Even researchers within the same lab may arrange data differently
     - Lack of standardization leads to:
@@ -31,7 +31,8 @@ Psych-DS provides a simple and easy-to-adopt standard for organizing data in the
     - [Getting Started Guide](./guides/1_getting_started.md/): Step-by-step guidance for creating your first Psych-DS dataset
     - [Rules and Conventions](./reference/rules_and_conventions.md): Basic requirements for Psych-DS compliance
     - [Advanced Practices](./guides/2_advanced_practices.md): Guidance on more advanced topics relating to metadata and file structure
-    - [Schema Reference](./reference/schema/schema_overview.md): Documentation built from technical schema reference, includes all rules/objects/definitions.
+    - [Error reference](./reference/schema/errors.md): Descriptions of and troubleshooting tips for all common errors
+    - [Schema Reference](./reference/schema/schema_overview.md): Documentation built from technical schema reference, includes all rules/objects/definitions
     - [Technical Reference](https://github.com/psych-ds/psych-DS/tree/master/schema_model): Official schema model using [linkML](https://linkml.io/)
 
 
@@ -47,7 +48,7 @@ To be compliant with Psych-DS, focus on two key aspects:
 
     - Summary of contents
     - Creation and modification records
-    - Essential context for interpretation and use
+    - Essential context regarding the provenance/design of the study
 
     ### Without Metadata:
 

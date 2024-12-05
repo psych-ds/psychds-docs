@@ -2,25 +2,29 @@
 
 Psych-DS is an open-source project funded by the NIH [BRAIN Initiative](https://braininitiative.nih.gov/). It is developed and maintained by a small team within the MIT [Early Childhood Cognition Lab](https://eccl.mit.edu/) and is closely associated with the [Children Helping Science](https://childrenhelpingscience.com/) platform.
 
-## Melissa Kline-Struhl
-!!! info "Executive Director, Psych-DS and Children Helping Science"
-    <img src="../images/melissa.png" width="300">
+---
 
-    Melissa is passionate about data management and robust science methods, and has been working with the open science community on Psych-DS on and off since 2018. She previously earned a PhD from MIT Brain & Cognitive Sciences and worked at the Center for Open Science; she is now the Executive Director of Children Helping Science, a platform for data collection with babies and children. In her spare time she likes hanging out with her daughter Talia and playing co-op boardgames.
+## Melissa Kline-Struhl
+#### *_Executive Director, Psych-DS and Children Helping Science_*
+<img src="../images/melissa.png" width="300">
+
+Melissa is passionate about data management and robust science methods, and has been working with the open science community on Psych-DS on and off since 2018. She previously earned a PhD from MIT Brain & Cognitive Sciences and worked at the Center for Open Science; she is now the Executive Director of Children Helping Science, a platform for data collection with babies and children. In her spare time she likes hanging out with her daughter Talia and playing co-op boardgames.
 
 !!! tip "Contact"
-    mekline@mit.edu
+    [*_mekline@mit.edu_*](mailto:mekline@mit.edu)
+
+---
 
 ## Brian Leonard
-!!! info "Software Developer, Psych-DS"
+#### *_Software Developer, Psych-DS_*
+<img src="../images/brian.jpeg" width="300">
 
-    <img src="../images/brian.jpeg" width="300">
-
-
-    Brian develops open-source tools to help the Psych-DS community. His background as a scientist is in Linguistics, and he has been providing technical support to researchers for going on a decade now. He lives in Baltimore with his gray cat Benjals, and in his free time he likes to write poetry, make strangers laugh, and play pool.
+Brian develops open-source tools to help the Psych-DS community. His background as a scientist is in Linguistics, and he has been providing technical support to researchers for going on a decade now. He lives in Baltimore with his gray cat Benjals, and in his free time he likes to write poetry, make strangers laugh, and play pool.
 
 !!! tip "Contact"
-    bleonard@mit.edu
+    [*_bleonard@mit.edu_*](mailto:bleonard@mit.edu)
+
+---
 
 ## Psych-DS Contributors
 
@@ -65,6 +69,8 @@ The Psych-DS specification has been developed by an open source community, inclu
     - Samuel Guay
     - Gustav Nilsonne 
     - Eduard Klapwijk
+
+---
 
 ## SIPS 2022 Hackathon attendees
 
