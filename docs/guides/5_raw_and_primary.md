@@ -25,7 +25,7 @@ Raw data refers to the very first form in which data exists, regardless of forma
 
 ### Primary data
 
-Primary data refers to the first *digital* form of the data. As defined by the German Psychological Society, this distinction becomes important when raw data begins in a non-digital format.
+Primary data refers to the first *digital* form of the data. This distinction becomes important when raw data begins in a non-digital format.
 
 !!! example "Raw vs Primary Data Examples"
     **Scenario 1: Paper-based collection**
