@@ -1,5 +1,7 @@
 title: Getting Started
 arrange:
   - 1_getting_started.md
+  - 4_data_dictionary.md'
+  - 5_raw_and_primary.md
   - 2_advanced_practices.md
   - 3_dev_guide.md
