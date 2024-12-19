@@ -67,7 +67,9 @@ You will need to select one directory (folder) for the study whose data you are 
 
 - Within the data directory, you can create any folder structure that suits your needs. Psych-DS will detect all files inside the `data/` folder and run them through validation. 
 
-- There is one exception - the `data/raw/` directory. If the earliest digital form of your data is *not* going to be formatted in CSV (see next step) - you can put them into this folder, and Psych-DS will know to ignore them during validation. 
+- There is one exception - the `data/raw/` directory. If the earliest digital form of your data is *not* going to be formatted in CSV (see next step) - you can put them into this folder, and Psych-DS will know to ignore them during validation. For more details on raw and primary data, visit [this page](./5_raw_and_primary.md).
+
+    
 
 After completing this step, your (empty) directory structure might look like this: 
 
