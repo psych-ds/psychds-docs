@@ -40,7 +40,7 @@ Then, try out the validator. If you run into any trouble, feel free to ask quest
 
 ## Before you start
 
-!!! abstract "Prerequisites"
+!!! abstract "What you need"
     Here is what you need to complete the steps below:
 
     1. A copy of a dataset that you can edit. A dataset might consist of several files or just one. If your files contain tabular (row-and-column) data, you can probably format them to the Psych-DS standard.
@@ -54,7 +54,7 @@ Then, try out the validator. If you run into any trouble, feel free to ask quest
 
 ---
 
-## Choose or make your file directory
+## Step 1: Choose or make your file directory
 
 You will need to select one directory (folder) for the study whose data you are working with. Ideally, this is the folder on your computer that contains all the materials for this project, including analyses, writing, stimuli and other materials, as well as the dataset itself. You can also create a new folder for the purposes of this exercise.   
 
@@ -105,7 +105,7 @@ We'll use this sample directory as the example moving forward. To start off, it 
 
 ---
 
-## Format your data files, and move them if necessary
+## Step 2: Format your data files, and move them if necessary
 
 Choose the files that have the data you will be organizing. Psych-DS is designed to work with as many data tables as you have, no matter how they are related to each other. Here are some data breakdowns that you might have:
 
@@ -171,7 +171,7 @@ Remember, the goal is for your `data/` folder to contain *only* the data itself.
 
 ---
 
-## Name your data files
+## Step 3: Name your data files
 
 Once your data files are formatted as CSVs, you will rename them to follow the Psych-DS labeling pattern. If you have just one CSV, it might be reasonable to just label it using a nickname for the study, like this: 
 
@@ -245,13 +245,13 @@ Here is our sample directory again, with the CSV files renamed to match Psych-DS
 
 ---
 
-## Make a metadata file
+## Step 4: Make a metadata file
 
 A main goal of Psych-DS is for you to be able to check your work, so you can always tell if you are following the same consistent approach as anyone else who adopts this standard.
 
 In order to do this, we'll need to add one more file to your directory. This file lets the Psych-DS validator know that this *is* a Psych-DS dataset, and describes what should be inside it. This file is also non-negotiable - every Psych-DS dataset must have a `dataset_description.json` file, with exactly that name. 
 
-If you want, you can start with a "dummy" file. Download the file [here](https://osf.io/esy2t) (click the three dots on the right to find the download button), then drag it into your project folder. 
+If you want, you can start with this template we've made. Download the file [here](https://osf.io/esy2t) (click the three dots on the right to find the download button), then drag it into your project folder. 
 
 Watch out where you put this file relative to the `data/` folder - make sure that the `dataset_description.json` file is *next* to the `data/` folder, not *inside* of it. Your directory should now look like this:
 
@@ -277,7 +277,7 @@ Watch out where you put this file relative to the `data/` folder - make sure tha
 This is a JSON file, which contains specially formatted text with information about your dataset. If you open it up in your text editor, you will see this:
 
 !!! example "Sample dataset_description.json"
-    ```json
+    ```
     {
         "@context" : "http://schema.org/",
         "@type" : "Dataset",
@@ -307,7 +307,7 @@ Either way, the `variableMeasured` field must contain *all* of the column names 
 
 ---
 
-## Check your work
+## Last Step: Check your work
 
 Now that you have all the necessary pieces in place, it's time to visit the [Psych-DS Validator Tool](https://psych-ds.github.io/validator/) and confirm that what you have is a Psych-DS compliant dataset.
 
@@ -316,7 +316,7 @@ Once you have the website open, click "select dataset" and indicate your project
 !!! tip "Important Note"
     When you do this, your browser may show you a warning about uploading files. This is a standard message that your web browser shows anytime a website wants to interact with files on your local system. However, in this case, all of the validation takes place "client-side". This means that your data is not being sent over the internet or stored anywhere other than your local computer. You can prove this to yourself by turning off your wifi before selecting a directory - the validator should still work as normal.
 
-You'll receive your validation results, and if it says **VALID**, then you're good to go! If it says **INVALID**, then you'll have to look through the errors (which you can find a list of ) reported by the validator and make whatever small adjustments to your dataset are necessary. Keep fixing errors until the message says **VALID** - you did it!
+You'll receive your validation results, and if it says **VALID**, then you're good to go! If it says **INVALID**, then you'll have to look through the errors (which you can find a list of [here](../reference/schema/errors.md)) reported by the validator and make whatever small adjustments to your dataset are necessary. Keep fixing errors until the message says **VALID** - you did it!
 
 ---
 
